@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rarefaction Pictures</title>
+<meta name="description" content="Rarefaction Pictures - short films, features, and short-form content.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="newsprint-bg"></div>
+
+<!-- reusable triangle mark, matches the logo: blue / orange / red -->
+<header class="site-header">
+  <a href="index.html" class="logo-mark">
+    <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+  <nav class="site-nav">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="work.html">Work</a>
+    <a href="cinematography.html">Cinematography</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <p class="eyebrow">A Production Company</p>
+  <div class="hero-photo">
+    <!-- EDIT ME: replace this whole div's contents with
+         <img src="images/team-photo.jpg" alt="Avery Streb, Thanachai Pumma, and Marlon Streb"> -->
+    <p class="hero-photo-label">[ Team photo goes here ]<br>Grayscale, wide crop, ~1600×600</p>
+  </div>
+  <div class="hero-text">
+    <img src="images/logo-full.png" alt="Rarefaction Pictures" class="hero-logo">
+    <h1 class="visually-hidden">Rarefaction Pictures</h1>
+    <p class="hero-tagline">Since 2023.</p>
+  </div>
+</section>
+
+<div class="torn-divider">
+  <img class="tri-cluster" src="images/logo-icon.png" alt="">
+</div>
+
+<!-- ============ LATEST WORK ============ -->
+<!-- EDIT ME: each work-card is one project. Copy a card to add more.
+     Leave a category's work-row containing only the work-empty div
+     if you have nothing to show yet — it's designed to look intentional. -->
+<section class="latest-work">
+  <div class="wrap">
+    <p class="section-label">Latest Work</p>
+
+    <div class="work-category">
+      <div class="work-category-head">
+        <h2 class="work-category-title"><span class="accent-dot" style="background:var(--red)"></span>Short Films</h2>
+        <a href="work.html" class="work-category-link">View all →</a>
+      </div>
+      <div class="work-row">
+        <article class="work-card">
+          <div class="work-card-frame"><span>Still</span></div>
+          <div class="work-card-body">
+            <h3 class="work-card-title">The Routine</h3>
+            <p class="work-card-meta">2026 · 6 min</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-card-frame"><span>Still</span></div>
+          <div class="work-card-body">
+            <h3 class="work-card-title">NOON</h3>
+            <p class="work-card-meta">2024 · 28 min</p>
+          </div>
+        </article>
+        <article class="work-card">
+          <div class="work-card-frame"><span>Still</span></div>
+          <div class="work-card-body">
+            <h3 class="work-card-title">Daedalus</h3>
+            <p class="work-card-meta">2024 · 13 min</p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="work-category">
+      <div class="work-category-head">
+        <h2 class="work-category-title"><span class="accent-dot" style="background:var(--orange)"></span>Features</h2>
+        <a href="work.html" class="work-category-link">View all →</a>
+      </div>
+      <div class="work-row">
+        <!-- No features yet — remove this work-empty block once one exists -->
+        <div class="work-empty">
+          <p>First feature currently in development</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="work-category">
+      <div class="work-category-head">
+        <h2 class="work-category-title"><span class="accent-dot" style="background:var(--blue)"></span>Short-Form</h2>
+        <a href="work.html" class="work-category-link">View all →</a>
+      </div>
+      <div class="work-row">
+        <!-- No short-form content yet — remove this work-empty block once one exists -->
+        <div class="work-empty">
+          <p>Coming soon</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="torn-divider">
+  <img class="tri-cluster" src="images/logo-icon.png" alt="">
+</div>
+
+<!-- ============ WORK WITH US ============ -->
+<section class="work-with-us">
+  <div class="wrap">
+    <h2 class="wwu-title">Work With Us</h2>
+    <p class="wwu-copy">
+      Looking for a director, cinematographer, gaffer, or other crew for your next project?
+      We're always open to collaborations!
+    </p>
+    <a href="contact.html" class="btn">Get in touch</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Rarefaction Pictures</span>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>

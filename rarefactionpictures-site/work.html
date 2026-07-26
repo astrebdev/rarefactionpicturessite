@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Rarefaction Pictures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="newsprint-bg"></div>
+
+<header class="site-header">
+  <a href="index.html" class="logo-mark">
+    <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="cinematography.html">Cinematography</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="page-head">
+  <h1 class="page-title">Work</h1>
+  <p class="page-sub">Short films, features, and short-form content.</p>
+</div>
+
+<!-- EDIT ME: same pattern as the homepage — copy a work-card to add
+     a project, or leave the work-empty block if a category is bare. -->
+<div class="wrap work-archive">
+
+  <div class="work-category">
+    <div class="work-category-head">
+      <h2 class="work-category-title"><span class="accent-dot" style="background:var(--red)"></span>Short Films</h2>
+    </div>
+    <div class="work-row">
+      <article class="work-card">
+        <div class="work-card-frame"><span>Still</span></div>
+        <div class="work-card-body">
+          <h3 class="work-card-title">Undertow</h3>
+          <p class="work-card-meta">2025 · 14 min · Dir. Marlon Streb</p>
+        </div>
+      </article>
+      <article class="work-card">
+        <div class="work-card-frame"><span>Still</span></div>
+        <div class="work-card-body">
+          <h3 class="work-card-title">Static Bloom</h3>
+          <p class="work-card-meta">2024 · 11 min · Dir. Marlon Streb</p>
+        </div>
+      </article>
+      <article class="work-card">
+        <div class="work-card-frame"><span>Still</span></div>
+        <div class="work-card-body">
+          <h3 class="work-card-title">Hollow Frequency</h3>
+          <p class="work-card-meta">2023 · 9 min · Dir. Marlon Streb</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="work-category">
+    <div class="work-category-head">
+      <h2 class="work-category-title"><span class="accent-dot" style="background:var(--orange)"></span>Features</h2>
+    </div>
+    <div class="work-row">
+      <div class="work-empty">
+        <p>First feature currently in development</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-category">
+    <div class="work-category-head">
+      <h2 class="work-category-title"><span class="accent-dot" style="background:var(--blue)"></span>Short-Form</h2>
+    </div>
+    <div class="work-row">
+      <div class="work-empty">
+        <p>Coming soon</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Rarefaction Pictures</span>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
