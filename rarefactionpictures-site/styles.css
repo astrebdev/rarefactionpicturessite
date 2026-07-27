@@ -249,7 +249,7 @@ img{ max-width:100%; display:block; }
 .hero-wwu-btn{
   position:absolute;
   bottom:28px;
-  left:28px;
+  left:max(28px, calc((100% - 1120px) / 2 + 32px));
   z-index:3;
   display:inline-block;
   font-family:var(--font-display);
@@ -261,13 +261,13 @@ img{ max-width:100%; display:block; }
   background:var(--orange); /* set to match the page's color mode, see main.js */
   color:#ffffff;
   text-shadow:0 2px 5px rgba(0,0,0,0.85), 0 0 2px rgba(0,0,0,0.6);
-  transition:background .2s ease, transform .2s ease, color .2s ease;
+  box-shadow:0 0 0 rgba(0,0,0,0); /* overridden with a real glow via main.js to match the accent color */
+  transition:background .2s ease, color .2s ease;
 }
 .hero-wwu-btn:hover{
   background:var(--ink);
   color:var(--bg);
   text-shadow:none;
-  transform:translateY(-5px);
 }
 
 .hero-photo::after{
