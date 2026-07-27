@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function(){
+  var modes = ['blue','orange','red'];
+  var m = modes[Math.floor(Math.random()*modes.length)];
+  document.documentElement.setAttribute('data-theme', m);
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rarefaction Pictures</title>
 <meta name="description" content="Rarefaction Pictures - short films, features, and short-form content.">
+<link rel="icon" type="image/png" href="images/logo-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="images/logo-icon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="newsprint-bg"></div>
 
 <header class="site-header">
-  <a href="index.html" class="logo-mark">
-    <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
-  </a>
-  <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-  <nav class="site-nav">
-    <a href="index.html" aria-current="page">Home</a>
-    <a href="work.html">Work</a>
-    <a href="cinematography.html">Cinematography</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="site-header-inner">
+    <a href="index.html" class="logo-mark">
+      <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="site-nav">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="work.html">Work</a>
+      <a href="cinematography.html">Cinematography</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
   <div class="hero-photo">
-    <p class="hero-photo-label">[ Team photo goes here ]<br>Grayscale, wide crop, ~1600×600</p>
+    <!-- EDIT ME: swap for the real team photo when you have it -->
+    <img class="hero-photo-img" src="https://picsum.photos/seed/rarefaction-team/1920/900?grayscale" alt="Avery Streb, Thanachai Pumma, and Marlon Streb">
     <img src="images/logo-full.png" alt="Rarefaction Pictures" class="hero-logo-overlay">
     <a href="contact.html" class="hero-wwu-btn">Work With Us</a>
   </div>
   <h1 class="visually-hidden">Rarefaction Pictures</h1>
 </section>
-
-<div class="torn-divider"></div>
 
 <section class="latest-work">
   <div class="wrap">
@@ -50,21 +58,21 @@
       </div>
       <div class="work-row">
         <article class="work-card" data-film="the-routine" tabindex="0" role="button">
-          <div class="work-card-frame"><span>Still</span></div>
+          <div class="work-card-frame"><img src="https://picsum.photos/seed/the-routine/800/500" alt="The Routine still"></div>
           <div class="work-card-body">
             <h3 class="work-card-title">The Routine</h3>
             <p class="work-card-meta">2026 · 6 min</p>
           </div>
         </article>
         <article class="work-card" data-film="noon" tabindex="0" role="button">
-          <div class="work-card-frame"><span>Still</span></div>
+          <div class="work-card-frame"><img src="https://picsum.photos/seed/noon-film/800/500" alt="NOON still"></div>
           <div class="work-card-body">
             <h3 class="work-card-title">NOON</h3>
             <p class="work-card-meta">2024 · 28 min</p>
           </div>
         </article>
         <article class="work-card" data-film="daedalus" tabindex="0" role="button">
-          <div class="work-card-frame"><span>Still</span></div>
+          <div class="work-card-frame"><img src="https://picsum.photos/seed/daedalus-film/800/500" alt="Daedalus still"></div>
           <div class="work-card-body">
             <h3 class="work-card-title">Daedalus</h3>
             <p class="work-card-meta">2024 · 13 min</p>
@@ -114,7 +122,6 @@
   </div>
 </footer>
 
-<!-- ===== Film modal (shared by every short-film / feature card) ===== -->
 <div class="film-modal-backdrop" id="filmModalBackdrop">
   <div class="film-modal" role="dialog" aria-modal="true" aria-labelledby="filmModalTitle">
     <button class="film-modal-close" id="filmModalClose" aria-label="Close">✕</button>
