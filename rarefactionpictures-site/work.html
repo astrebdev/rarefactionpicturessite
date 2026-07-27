@@ -31,8 +31,19 @@
   <p class="page-sub">Short films, features, and short-form content.</p>
 </div>
 
-<!-- EDIT ME: same pattern as the homepage — copy a work-card to add
-     a project, or leave the work-empty block if a category is bare. -->
+<!-- EDIT ME:
+  SHORT FILM / FEATURE entries -> clicking opens the trailer modal.
+    Give the card a unique data-film="slug" and add a matching entry
+    in films-data.js. Reuse the same slug on the homepage card for
+    the same film so both point at the same data.
+
+  SHORT-FORM entries -> clicking should jump straight to YouTube.
+    Give the card data-youtube="https://youtube.com/watch?v=XXXX"
+    instead of data-film. No modal, no films-data.js entry needed.
+
+  Empty category? Leave just the work-empty block, delete it once
+  you add a real entry.
+-->
 <div class="wrap work-archive">
 
   <div class="work-category">
@@ -40,25 +51,25 @@
       <h2 class="work-category-title"><span class="accent-dot" style="background:var(--red)"></span>Short Films</h2>
     </div>
     <div class="work-row">
-      <article class="work-card">
+      <article class="work-card" data-film="the-routine" tabindex="0" role="button">
         <div class="work-card-frame"><span>Still</span></div>
         <div class="work-card-body">
           <h3 class="work-card-title">The Routine</h3>
-          <p class="work-card-meta">2026 · 6 min · Dir. Avery Streb · Starring Billy Gulkin, Avery Streb</p>
+          <p class="work-card-meta">2026 · 6 min</p>
         </div>
       </article>
-      <article class="work-card">
+      <article class="work-card" data-film="noon" tabindex="0" role="button">
         <div class="work-card-frame"><span>Still</span></div>
         <div class="work-card-body">
           <h3 class="work-card-title">NOON</h3>
-          <p class="work-card-meta">2024 · 28 min · Dir. Avery Streb · Starring Marlon Streb, Levi Hammond</p>
+          <p class="work-card-meta">2024 · 28 min</p>
         </div>
       </article>
-      <article class="work-card">
+      <article class="work-card" data-film="daedalus" tabindex="0" role="button">
         <div class="work-card-frame"><span>Still</span></div>
         <div class="work-card-body">
           <h3 class="work-card-title">Daedalus</h3>
-          <p class="work-card-meta">2024 · 13 min · Dir. Marlon Streb, Avery Streb · Starring Hunter Uliasz, Morgan Jamison </p>
+          <p class="work-card-meta">2024 · 13 min</p>
         </div>
       </article>
     </div>
@@ -70,7 +81,7 @@
     </div>
     <div class="work-row">
       <div class="work-empty">
-        <p>in development</p>
+        <p>First feature currently in development</p>
       </div>
     </div>
   </div>
@@ -92,6 +103,24 @@
   <span>© <span id="year"></span> Rarefaction Pictures</span>
 </footer>
 
+<!-- ===== Film modal (shared by every short-film / feature card) ===== -->
+<div class="film-modal-backdrop" id="filmModalBackdrop">
+  <div class="film-modal" role="dialog" aria-modal="true" aria-labelledby="filmModalTitle">
+    <button class="film-modal-close" id="filmModalClose" aria-label="Close">✕</button>
+    <div class="film-modal-scroll">
+      <p class="film-modal-eyebrow" id="filmModalMeta"></p>
+      <h2 class="film-modal-title" id="filmModalTitle"></h2>
+      <div class="film-modal-video">
+        <video class="film-modal-video-el" id="filmModalVideoEl" controls playsinline></video>
+        <div class="film-modal-video-placeholder" id="filmModalVideoPlaceholder">[ Trailer goes here ]</div>
+      </div>
+      <dl class="film-modal-facts" id="filmModalFacts"></dl>
+      <div class="film-modal-awards" id="filmModalAwards"></div>
+    </div>
+  </div>
+</div>
+
+<script src="films-data.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
