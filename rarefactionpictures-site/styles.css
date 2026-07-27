@@ -54,6 +54,7 @@ body{
   line-height:1.6;
   position:relative;
   overflow-x:hidden;
+  transition:background-color .6s ease;
 }
 
 /* grain texture, applied once, fixed over everything */
@@ -186,6 +187,7 @@ img{ max-width:100%; display:block; }
   margin:0;
   background:var(--paper-dark);
   box-shadow:0 6px 18px rgba(0,0,0,0.5);
+  transition:background-color .6s ease;
   clip-path:polygon(
     0% 38%, 3% 12%, 6% 44%, 9% 8%, 12% 40%, 15% 18%, 18% 50%,
     21% 6%, 24% 36%, 27% 22%, 30% 54%, 33% 10%, 36% 42%, 39% 16%,
@@ -252,16 +254,19 @@ img{ max-width:100%; display:block; }
   display:inline-block;
   font-family:var(--font-display);
   font-weight:700;
-  font-size:22px;
+  font-size:35px;
   letter-spacing:0.08em;
   text-transform:uppercase;
-  padding:23px 43px;
-  background:var(--orange); /* overridden randomly on load, see main.js */
-  color:var(--bg);
-  transition:background .2s ease, transform .2s ease;
+  padding:37px 69px;
+  background:var(--orange); /* set to match the page's color mode, see main.js */
+  color:#ffffff;
+  text-shadow:0 2px 5px rgba(0,0,0,0.85), 0 0 2px rgba(0,0,0,0.6);
+  transition:background .2s ease, transform .2s ease, color .2s ease;
 }
 .hero-wwu-btn:hover{
   background:var(--ink);
+  color:var(--bg);
+  text-shadow:none;
   transform:translateY(-2px);
 }
 
@@ -361,7 +366,7 @@ img{ max-width:100%; display:block; }
 .work-card{
   background:var(--bg-alt);
   border:1px solid var(--line);
-  transition:border-color .2s ease, transform .2s ease;
+  transition:border-color .2s ease, transform .2s ease, background-color .6s ease;
 }
 .work-card:hover{ transform:translateY(-3px); }
 
@@ -817,7 +822,11 @@ img{ max-width:100%; display:block; }
   width:100%; height:100%;
   object-fit:cover;
   display:block;
-  filter:grayscale(0.3);
+  filter:saturate(0.25);
+  transition:filter .5s ease;
+}
+.team-member.active-member .team-photo img{
+  filter:saturate(1);
 }
 .team-photo span{
   font-family:var(--font-mono);
