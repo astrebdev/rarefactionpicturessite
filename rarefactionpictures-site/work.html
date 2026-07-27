@@ -31,19 +31,6 @@
   <p class="page-sub">Short films, features, and short-form content.</p>
 </div>
 
-<!-- EDIT ME:
-  SHORT FILM / FEATURE entries -> clicking opens the trailer modal.
-    Give the card a unique data-film="slug" and add a matching entry
-    in films-data.js. Reuse the same slug on the homepage card for
-    the same film so both point at the same data.
-
-  SHORT-FORM entries -> clicking should jump straight to YouTube.
-    Give the card data-youtube="https://youtube.com/watch?v=XXXX"
-    instead of data-film. No modal, no films-data.js entry needed.
-
-  Empty category? Leave just the work-empty block, delete it once
-  you add a real entry.
--->
 <div class="wrap work-archive">
 
   <div class="work-category">
@@ -100,7 +87,15 @@
 </div>
 
 <footer class="site-footer">
-  <span>© <span id="year"></span> Rarefaction Pictures</span>
+  <div class="wrap footer-inner">
+    <span class="footer-copy">© <span id="year"></span> Rarefaction Pictures</span>
+    <div class="footer-links">
+      <a href="mailto:rarefactionpicturesoutreach@gmail.com">Email</a>
+      <a href="https://www.instagram.com/rarefactionpictures/">Instagram</a>
+      <a href="https://www.reddit.com/user/rarefactionpictures/">Reddit</a>
+      <a href="https://youtube.com/@rarefactionfilm">YouTube</a>
+    </div>
+  </div>
 </footer>
 
 <!-- ===== Film modal (shared by every short-film / feature card) ===== -->
