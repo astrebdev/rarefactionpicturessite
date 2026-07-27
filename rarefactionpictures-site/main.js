@@ -150,6 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (track && slides.length) {
     let index = 0;
     const captionEl = document.querySelector('.editorial-split-text p');
+    const mobileCaptionEl = document.querySelector('.cine-caption-mobile');
 
     slides.forEach((_, i) => {
       const dot = document.createElement('button');
@@ -161,12 +162,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = dotsWrap.querySelectorAll('.cine-dot');
 
     function applyCaption() {
-      if (!captionEl) return;
       const newText = slides[index].dataset.caption || '';
-      captionEl.classList.add('fading');
+      if (captionEl) {
+        captionEl.classList.add('fading');
+      }
+      if (mobileCaptionEl) {
+        mobileCaptionEl.classList.add('fading');
+      }
       setTimeout(() => {
-        captionEl.textContent = newText;
-        captionEl.classList.remove('fading');
+        if (captionEl) {
+          captionEl.textContent = newText;
+          captionEl.classList.remove('fading');
+        }
+        if (mobileCaptionEl) {
+          mobileCaptionEl.textContent = newText;
+          mobileCaptionEl.classList.remove('fading');
+        }
       }, 300);
     }
 
@@ -184,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', () => goTo(index + 1));
     render();
     if (captionEl) captionEl.textContent = slides[index].dataset.caption || '';
+    if (mobileCaptionEl) mobileCaptionEl.textContent = slides[index].dataset.caption || '';
   }
 
   // ================================================================
@@ -219,16 +231,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // ================================================================
   const teamMembers = document.querySelectorAll('.team-member[data-member-theme]');
   if (teamMembers.length) {
-    const pageDefaultTheme = document.documentElement.getAttribute('data-theme');
     const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     function setActiveMember(member) {
       teamMembers.forEach(m => m.classList.toggle('active-member', m === member));
       if (member) {
         document.documentElement.setAttribute('data-theme', member.dataset.memberTheme);
-      } else {
-        document.documentElement.setAttribute('data-theme', pageDefaultTheme);
       }
+      // On mouse-leave (member === null), the color mode is intentionally
+      // left as-is — it stays on whichever person was last hovered.
     }
 
     if (supportsHover) {
