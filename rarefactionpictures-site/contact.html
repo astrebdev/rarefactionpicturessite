@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function(){
+  var modes = ['blue','orange','red'];
+  var m = modes[Math.floor(Math.random()*modes.length)];
+  document.documentElement.setAttribute('data-theme', m);
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact — Rarefaction Pictures</title>
@@ -13,17 +20,19 @@
 <body>
 <div class="newsprint-bg"></div>
 <header class="site-header">
-  <a href="index.html" class="logo-mark">
-    <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
-  </a>
-  <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-  <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="work.html">Work</a>
-    <a href="cinematography.html">Cinematography</a>
-    <a href="about.html">About</a>
-    <a href="contact.html" aria-current="page">Contact</a>
-  </nav>
+  <div class="site-header-inner">
+    <a href="index.html" class="logo-mark">
+      <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="cinematography.html">Cinematography</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </nav>
+  </div>
 </header>
 <div class="wrap contact-page">
   <p class="eyebrow">Get in touch</p>
