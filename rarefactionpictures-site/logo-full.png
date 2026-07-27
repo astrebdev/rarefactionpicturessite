@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Rarefaction Pictures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="newsprint-bg"></div>
+
+<header class="site-header">
+  <a href="index.html" class="logo-mark">
+    <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="work.html" aria-current="page">Work</a>
+    <a href="cinematography.html">Cinematography</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="page-head">
+  <h1 class="page-title">Work</h1>
+  <p class="page-sub">Short films, features, and short-form content.</p>
+</div>
+
+<!-- EDIT ME:
+  SHORT FILM / FEATURE entries -> clicking opens the trailer modal.
+    Give the card a unique data-film="slug" and add a matching entry
+    in films-data.js. Reuse the same slug on the homepage card for
+    the same film so both point at the same data.
+
+  SHORT-FORM entries -> clicking should jump straight to YouTube.
+    Give the card data-youtube="https://youtube.com/watch?v=XXXX"
+    instead of data-film. No modal, no films-data.js entry needed.
+
+  Empty category? Leave just the work-empty block, delete it once
+  you add a real entry.
+-->
+<div class="wrap work-archive">
+
+  <div class="work-category">
+    <div class="work-category-head">
+      <h2 class="work-category-title"><span class="accent-dot" style="background:var(--red)"></span>Short Films</h2>
+    </div>
+    <div class="work-row">
+      <article class="work-card" data-film="the-routine" tabindex="0" role="button">
+        <div class="work-card-frame"><span>Still</span></div>
+        <div class="work-card-body">
+          <h3 class="work-card-title">The Routine</h3>
+          <p class="work-card-meta">2026 · 6 min</p>
+        </div>
+      </article>
+      <article class="work-card" data-film="noon" tabindex="0" role="button">
+        <div class="work-card-frame"><span>Still</span></div>
+        <div class="work-card-body">
+          <h3 class="work-card-title">NOON</h3>
+          <p class="work-card-meta">2024 · 28 min</p>
+        </div>
+      </article>
+      <article class="work-card" data-film="daedalus" tabindex="0" role="button">
+        <div class="work-card-frame"><span>Still</span></div>
+        <div class="work-card-body">
+          <h3 class="work-card-title">Daedalus</h3>
+          <p class="work-card-meta">2024 · 13 min</p>
+        </div>
+      </article>
+    </div>
+  </div>
+
+  <div class="work-category">
+    <div class="work-category-head">
+      <h2 class="work-category-title"><span class="accent-dot" style="background:var(--orange)"></span>Features</h2>
+    </div>
+    <div class="work-row">
+      <div class="work-empty">
+        <p>First feature currently in development</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-category">
+    <div class="work-category-head">
+      <h2 class="work-category-title"><span class="accent-dot" style="background:var(--blue)"></span>Short-Form</h2>
+    </div>
+    <div class="work-row">
+      <div class="work-empty">
+        <p>Coming soon</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span class="footer-copy">© <span id="year"></span> Rarefaction Pictures</span>
+    <div class="footer-links">
+      <a href="mailto:rarefactionpicturesoutreach@gmail.com">Email</a>
+      <a href="https://www.instagram.com/rarefactionpictures/">Instagram</a>
+      <a href="https://www.reddit.com/user/rarefactionpictures/">Reddit</a>
+      <a href="https://youtube.com/@rarefactionfilm">YouTube</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== Film modal (shared by every short-film / feature card) ===== -->
+<div class="film-modal-backdrop" id="filmModalBackdrop">
+  <div class="film-modal" role="dialog" aria-modal="true" aria-labelledby="filmModalTitle">
+    <button class="film-modal-close" id="filmModalClose" aria-label="Close">✕</button>
+    <div class="film-modal-scroll">
+      <p class="film-modal-eyebrow" id="filmModalMeta"></p>
+      <h2 class="film-modal-title" id="filmModalTitle"></h2>
+      <div class="film-modal-video">
+        <video class="film-modal-video-el" id="filmModalVideoEl" controls playsinline></video>
+        <div class="film-modal-video-placeholder" id="filmModalVideoPlaceholder">[ Trailer goes here ]</div>
+      </div>
+      <dl class="film-modal-facts" id="filmModalFacts"></dl>
+      <div class="film-modal-awards" id="filmModalAwards"></div>
+    </div>
+  </div>
+</div>
+
+<script src="films-data.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

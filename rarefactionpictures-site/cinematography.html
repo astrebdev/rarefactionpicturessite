@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cinematography — Rarefaction Pictures</title>
+<title>About — Rarefaction Pictures</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -11,7 +11,6 @@
 </head>
 <body>
 <div class="newsprint-bg"></div>
-
 <header class="site-header">
   <a href="index.html" class="logo-mark">
     <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
@@ -20,92 +19,64 @@
   <nav class="site-nav">
     <a href="index.html">Home</a>
     <a href="work.html">Work</a>
-    <a href="cinematography.html" aria-current="page">Cinematography</a>
-    <a href="about.html">About</a>
+    <a href="cinematography.html">Cinematography</a>
+    <a href="about.html" aria-current="page">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 </header>
-
 <div class="page-head">
-  <h1 class="page-title">Cinematography</h1>
-  <p class="page-sub">Frames from behind the camera.</p>
+  <h1 class="page-title">About</h1>
 </div>
-
-<!-- ============ CAROUSEL ============
-  EDIT ME: each .cine-slide is one still. Copy a slide to add more.
-  On desktop, the title/year/DP bar rises on hover. On mobile it's
-  always visible below the image (see styles.css media query).
-  Swap the .cine-frame's <span> for a real <img> once you have stills.
--->
-<div class="wrap">
-  <div class="cine-carousel">
-    <div class="cine-track">
-
-      <div class="cine-slide">
-        <div class="cine-frame"><span>Still 01</span></div>
-        <div class="cine-info-bar">
-          <span class="cine-info-title">The Routine</span>
-          <span class="cine-info-meta">2026 · DP: Avery Streb</span>
-        </div>
-      </div>
-
-      <div class="cine-slide">
-        <div class="cine-frame"><span>Still 02</span></div>
-        <div class="cine-info-bar">
-          <span class="cine-info-title">NOON</span>
-          <span class="cine-info-meta">2024 · DP: Avery Streb</span>
-        </div>
-      </div>
-
-      <div class="cine-slide">
-        <div class="cine-frame"><span>Still 03</span></div>
-        <div class="cine-info-bar">
-          <span class="cine-info-title">Daedalus</span>
-          <span class="cine-info-meta">2024 · DP: Avery Streb</span>
-        </div>
-      </div>
-
-      <div class="cine-slide">
-        <div class="cine-frame"><span>Still 04</span></div>
-        <div class="cine-info-bar">
-          <span class="cine-info-title">[ Next project ]</span>
-          <span class="cine-info-meta">— · DP: —</span>
-        </div>
-      </div>
-
+<div class="wrap about-intro">
+  <p>
+    Rarefaction Pictures has had many names, but we have always been committed to achieving the highest-quality results on any project. We believe intentional choices are the name of the game, and our stories and visual language reflect that.
+  </p>
+</div>
+<div class="torn-divider">
+</div>
+<div class="wrap team">
+  <div class="team-member" style="--member-color:var(--blue)">
+    <div class="team-photo">
+      <span>[ Photo: Avery Streb ]</span>
     </div>
-
-    <button class="cine-arrow cine-arrow--prev" aria-label="Previous still">‹</button>
-    <button class="cine-arrow cine-arrow--next" aria-label="Next still">›</button>
-    <div class="cine-dots"></div>
+    <h3 class="team-name">Avery Streb</h3>
+    <p class="team-role">Writer, Director, Cinematographer</p>
+    <p class="team-bio">
+      Avery Streb has been creating visual media since 2013, whether its videogames or films. Since then, his writing mostly explores the high-concept and the surreal.
+    </p>
+  </div>
+  <div class="team-member" style="--member-color:var(--orange)">
+    <div class="team-photo">
+      <span>[ Photo: Thanachai Pumma ]</span>
+    </div>
+    <h3 class="team-name">Thanachai Pumma</h3>
+    <p class="team-role">Post-Production Generalist</p>
+    <p class="team-bio">
+      Thanachai can do a mean VFX shot dawg
+    </p>
+  </div>
+  <div class="team-member" style="--member-color:var(--red)">
+    <div class="team-photo">
+      <span>[ Photo: Marlon Streb ]</span>
+    </div>
+    <h3 class="team-name">Marlon Streb</h3>
+    <p class="team-role">VFX Artist, Cinematographer</p>
+    <p class="team-bio">
+      Marlon Streb has been a cinematography powerhouse ever since he became a filmmaker- which he achieved through constant study and practical experiments.
+    </p>
   </div>
 </div>
-
-<!-- ============ REEL ============
-  EDIT ME: drop your reel file in videos/reel.mp4, then uncomment
-  the <source> line below. Autoplay requires muted — the mute
-  button lets visitors turn sound on themselves. Until a source
-  is added, this shows a placeholder instead of a broken player.
--->
-<section class="reel">
-  <div class="wrap">
-    <p class="section-label">Reel</p>
-    <div class="reel-player">
-      <video class="reel-video" autoplay muted loop playsinline>
-        <!-- <source src="videos/reel.mp4" type="video/mp4"> -->
-      </video>
-      <div class="reel-placeholder-label" id="reelPlaceholderLabel">
-        [ Reel goes here ]<br>Drop an mp4 in <code>videos/</code> and uncomment the &lt;source&gt; tag in this file
-      </div>
-      <button class="reel-mute-toggle" aria-label="Toggle sound">🔇</button>
-    </div>
-  </div>
-</section>
-
 <footer class="site-footer">
-  <span>© <span id="year"></span> Rarefaction Pictures</span>
+  <div class="wrap footer-inner">
+    <span class="footer-copy">© <span id="year"></span> Rarefaction Pictures</span>
+    <div class="footer-links">
+      <a href="mailto:rarefactionpicturesoutreach@gmail.com">Email</a>
+      <a href="https://www.instagram.com/rarefactionpictures/">Instagram</a>
+      <a href="https://www.reddit.com/user/rarefactionpictures/">Reddit</a>
+      <a href="https://youtube.com/@rarefactionfilm">YouTube</a>
+    </div>
+  </div>
 </footer>
-
 <script src="main.js"></script>
 </body>
 </html>
