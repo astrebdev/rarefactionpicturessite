@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/logo-icon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -31,11 +32,17 @@
   <p class="page-sub">Frames from behind the camera.</p>
 </div>
 
+<!-- ============ CAROUSEL ============
+  EDIT ME: each .cine-slide is one still. Copy a slide to add more.
+  On desktop, the title/year/DP bar rises on hover. On mobile it's
+  always visible below the image (see styles.css media query).
+  Swap the .cine-frame's <span> for a real <img> once you have stills.
+-->
 <div class="wrap">
   <div class="cine-carousel">
     <div class="cine-track">
 
-      <div class="cine-slide">
+      <div class="cine-slide active">
         <div class="cine-frame"><span>Still 01</span></div>
         <div class="cine-info-bar">
           <span class="cine-info-title">The Routine</span>
@@ -75,6 +82,12 @@
   </div>
 </div>
 
+<!-- ============ REEL ============
+  EDIT ME: drop your reel file in videos/reel.mp4, then uncomment
+  the <source> line below. Autoplay requires muted — the mute
+  button lets visitors turn sound on themselves. Until a source
+  is added, this shows a placeholder instead of a broken player.
+-->
 <section class="reel">
   <div class="wrap">
     <p class="section-label">Reel</p>
