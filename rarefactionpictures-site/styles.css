@@ -2,7 +2,7 @@
    RAREFACTION PICTURES — Design tokens
    ========================================================= */
 :root{
-  --bg:        #181f23;
+  --bg:        #131113;
   --bg-alt:    #1b181a;
   --paper:     #d8d0bf;
   --paper-dim: #b7ae9c;
@@ -18,6 +18,28 @@
   --font-display: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
   --font-body:    'Newsreader', Georgia, serif;
   --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
+}
+
+/* =========================================================
+   RANDOM MODE — one of these is applied via data-theme on <html>
+   by the inline script in <head>, picked fresh on every page load.
+   Accent colors (blue/orange/red above) stay fixed since they're
+   tied to specific people — only the surface/mood colors shift.
+   ========================================================= */
+html[data-theme="blue"]{
+  --bg:        #181f23;
+  --bg-alt:    #212a2f;
+  --paper-dark:#26404a;
+}
+html[data-theme="orange"]{
+  --bg:        #1e1a15;
+  --bg-alt:    #2a2318;
+  --paper-dark:#4a341a;
+}
+html[data-theme="red"]{
+  --bg:        #1d1518;
+  --bg-alt:    #28191d;
+  --paper-dark:#4a1f24;
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
@@ -95,14 +117,20 @@ img{ max-width:100%; display:block; }
    HEADER / NAV
    ========================================================= */
 .site-header{
+  background:#0c0b0c;
+  box-shadow:0 6px 28px rgba(0,0,0,0.55);
+  position:relative;
+  z-index:50;
+}
+
+.site-header-inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
   max-width:1120px;
   margin:0 auto;
-  padding:26px 32px;
+  padding:22px 32px;
   position:relative;
-  z-index:10;
 }
 
 .logo-mark{
@@ -148,6 +176,7 @@ img{ max-width:100%; display:block; }
 
 .nav-toggle{ display:none; }
 
+
 /* =========================================================
    TORN DIVIDER — the recurring signature element
    ========================================================= */
@@ -187,37 +216,38 @@ img{ max-width:100%; display:block; }
    HERO (home)
    ========================================================= */
 .hero{
-  padding:64px 0 0;
+  padding:0;
   text-align:center;
 }
 
 .hero-photo{
   position:relative;
-  margin:0 auto 0;
-  max-width:1120px;
-  height:420px;
-  background:
-    repeating-linear-gradient(135deg, #201d1f 0 2px, #171417 2px 4px);
-  border:1px dashed var(--line);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width:100%;
+  height:min(72vh, 680px);
+  min-height:420px;
   overflow:hidden;
+}
+
+.hero-photo-img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+  z-index:1;
 }
 
 .hero-logo-overlay{
   position:absolute;
-  top:24px;
-  right:24px;
-  width:min(220px, 28%);
+  top:28px;
+  right:28px;
+  width:min(260px, 22%);
   height:auto;
   z-index:3;
 }
 
 .hero-wwu-btn{
   position:absolute;
-  bottom:24px;
-  left:24px;
+  bottom:28px;
+  left:28px;
   z-index:3;
   display:inline-block;
   font-family:var(--font-display);
@@ -235,21 +265,12 @@ img{ max-width:100%; display:block; }
   transform:translateY(-2px);
 }
 
-.hero-photo-label{
-  font-family:var(--font-mono);
-  font-size:12px;
-  letter-spacing:0.1em;
-  text-transform:uppercase;
-  color:var(--muted);
-  text-align:center;
-  line-height:1.8;
-}
-
 .hero-photo::after{
   content:"";
   position:absolute; left:0; right:0; bottom:0;
   height:5px;
   background:linear-gradient(90deg,var(--blue) 0 33.3%,var(--orange) 33.3% 66.6%,var(--red) 66.6% 100%);
+  z-index:2;
 }
 
 .hero-text{ padding:48px 32px 60px; }
@@ -350,6 +371,12 @@ img{ max-width:100%; display:block; }
   display:flex;
   align-items:center;
   justify-content:center;
+  overflow:hidden;
+}
+.work-card-frame img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
 }
 .work-card-frame span{
   font-family:var(--font-mono);
@@ -440,36 +467,41 @@ img{ max-width:100%; display:block; }
   font-style:italic;
 }
 
-.work-archive{ padding:40px 0 80px; }
+.work-archive{ padding:56px 0 80px; }
 
 /* =========================================================
    CINEMATOGRAPHY PAGE — carousel
    ========================================================= */
 .cine-carousel{
   position:relative;
-  padding:40px 0 20px;
+  width:100%;
 }
 
 .cine-carousel .cine-track{
-  display:flex;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  scrollbar-width:none;
-  -ms-overflow-style:none;
-  border:1px solid var(--line);
+  position:relative;
+  width:100%;
 }
-.cine-carousel .cine-track::-webkit-scrollbar{ display:none; }
 
 .cine-carousel .cine-slide{
+  display:none;
   position:relative;
-  flex:0 0 100%;
-  scroll-snap-align:start;
+  width:100%;
+}
+.cine-carousel .cine-slide.active{
+  display:block;
 }
 
 .cine-frame{
+  width:100%;
   aspect-ratio:16/9;
   background:repeating-linear-gradient(135deg,#221f21 0 2px,#19171a 2px 4px);
   display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+}
+.cine-frame img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
 }
 .cine-frame span{
   font-family:var(--font-mono);
@@ -558,6 +590,46 @@ img{ max-width:100%; display:block; }
 /* =========================================================
    REEL PLAYER
    ========================================================= */
+/* =========================================================
+   EDITORIAL SPLIT — photo + text (e.g. Marlon on cinematography page)
+   ========================================================= */
+.editorial-split{
+  padding:70px 0;
+}
+.editorial-split-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+  align-items:center;
+}
+.editorial-split-photo{
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:repeating-linear-gradient(135deg,#221f21 0 2px,#19171a 2px 4px);
+}
+.editorial-split-photo img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  filter:grayscale(0.4);
+}
+.editorial-split-text h2{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:clamp(24px,3vw,34px);
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+.editorial-split-text p{
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.75;
+}
+
+@media (max-width:800px){
+  .editorial-split{ grid-template-columns:1fr; gap:24px; }
+}
+
 .reel{ padding:20px 0 90px; }
 
 .reel-player{
@@ -765,6 +837,13 @@ img{ max-width:100%; display:block; }
   border-bottom:5px solid var(--member-color, var(--ink));
   display:flex; align-items:center; justify-content:center;
   margin-bottom:18px;
+  overflow:hidden;
+}
+.team-photo img{
+  width:100%; height:100%;
+  object-fit:cover;
+  display:block;
+  filter:grayscale(0.3);
 }
 .team-photo span{
   font-family:var(--font-mono);
