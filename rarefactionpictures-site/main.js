@@ -1,136 +1,200 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rarefaction Pictures</title>
-<meta name="description" content="Rarefaction Pictures - short films, features, and short-form content.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="newsprint-bg"></div>
+document.addEventListener('DOMContentLoaded', () => {
 
-<header class="site-header">
-  <a href="index.html" class="logo-mark">
-    <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
-  </a>
-  <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-  <nav class="site-nav">
-    <a href="index.html" aria-current="page">Home</a>
-    <a href="work.html">Work</a>
-    <a href="cinematography.html">Cinematography</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  // ---------- Mobile nav toggle ----------
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.site-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      toggle.textContent = nav.classList.contains('open') ? '✕' : '☰';
+    });
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.textContent = '☰';
+      });
+    });
+  }
 
-<section class="hero">
-  <div class="hero-photo">
-    <p class="hero-photo-label">[ Team photo goes here ]<br>Grayscale, wide crop, ~1600×600</p>
-    <img src="images/logo-full.png" alt="Rarefaction Pictures" class="hero-logo-overlay">
-    <a href="contact.html" class="hero-wwu-btn">Work With Us</a>
-  </div>
-  <h1 class="visually-hidden">Rarefaction Pictures</h1>
-</section>
+  // ---------- Footer year ----------
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-<div class="torn-divider"></div>
+  // ---------- Work With Us button: random accent color each load ----------
+  const wwuBtn = document.querySelector('.hero-wwu-btn');
+  if (wwuBtn) {
+    const accents = ['var(--blue)', 'var(--orange)', 'var(--red)'];
+    wwuBtn.style.background = accents[Math.floor(Math.random() * accents.length)];
+  }
 
-<section class="latest-work">
-  <div class="wrap">
-    <p class="section-label">Latest Work</p>
+  // ================================================================
+  // FILM MODAL — shared by every data-film work-card
+  // ================================================================
+  const backdrop = document.getElementById('filmModalBackdrop');
+  const modalTitle = document.getElementById('filmModalTitle');
+  const modalMeta = document.getElementById('filmModalMeta');
+  const modalFacts = document.getElementById('filmModalFacts');
+  const modalAwards = document.getElementById('filmModalAwards');
+  const modalVideo = document.getElementById('filmModalVideoEl');
+  const modalVideoPlaceholder = document.getElementById('filmModalVideoPlaceholder');
+  const modalClose = document.getElementById('filmModalClose');
 
-    <div class="work-category">
-      <div class="work-category-head">
-        <h2 class="work-category-title"><span class="accent-dot" style="background:var(--red)"></span>Short Films</h2>
-        <a href="work.html" class="work-category-link">View all →</a>
-      </div>
-      <div class="work-row">
-        <article class="work-card" data-film="the-routine" tabindex="0" role="button">
-          <div class="work-card-frame"><span>Still</span></div>
-          <div class="work-card-body">
-            <h3 class="work-card-title">The Routine</h3>
-            <p class="work-card-meta">2026 · 6 min</p>
-          </div>
-        </article>
-        <article class="work-card" data-film="noon" tabindex="0" role="button">
-          <div class="work-card-frame"><span>Still</span></div>
-          <div class="work-card-body">
-            <h3 class="work-card-title">NOON</h3>
-            <p class="work-card-meta">2024 · 28 min</p>
-          </div>
-        </article>
-        <article class="work-card" data-film="daedalus" tabindex="0" role="button">
-          <div class="work-card-frame"><span>Still</span></div>
-          <div class="work-card-body">
-            <h3 class="work-card-title">Daedalus</h3>
-            <p class="work-card-meta">2024 · 13 min</p>
-          </div>
-        </article>
-      </div>
-    </div>
+  function openFilmModal(filmKey) {
+    if (typeof FILMS === 'undefined' || !FILMS[filmKey] || !backdrop) return;
+    const f = FILMS[filmKey];
 
-    <div class="work-category">
-      <div class="work-category-head">
-        <h2 class="work-category-title"><span class="accent-dot" style="background:var(--orange)"></span>Features</h2>
-        <a href="work.html" class="work-category-link">View all →</a>
-      </div>
-      <div class="work-row">
-        <div class="work-empty">
-          <p>First feature currently in development</p>
-        </div>
-      </div>
-    </div>
+    modalTitle.textContent = f.title || '';
+    modalMeta.textContent = [f.type, f.year, f.runtime].filter(Boolean).join(' · ');
 
-    <div class="work-category">
-      <div class="work-category-head">
-        <h2 class="work-category-title"><span class="accent-dot" style="background:var(--blue)"></span>Short-Form</h2>
-        <a href="work.html" class="work-category-link">View all →</a>
-      </div>
-      <div class="work-row">
-        <div class="work-empty">
-          <p>Coming soon</p>
-        </div>
-      </div>
-    </div>
+    // Video vs. placeholder
+    if (f.trailerSrc) {
+      modalVideo.src = f.trailerSrc;
+      if (f.poster) modalVideo.poster = f.poster;
+      modalVideo.style.display = 'block';
+      modalVideoPlaceholder.style.display = 'none';
+    } else {
+      modalVideo.removeAttribute('src');
+      modalVideo.style.display = 'none';
+      modalVideoPlaceholder.style.display = 'flex';
+    }
 
-  </div>
-</section>
+    // Facts list — only render fields that have content
+    modalFacts.innerHTML = '';
+    const factRows = [
+      ['Director', f.director],
+      ['Cinematographer', f.dp],
+      ['Cast', Array.isArray(f.cast) ? f.cast.join(', ') : f.cast],
+      ['Licensing', f.licensing],
+      ['Where to Watch', f.whereToWatch]
+    ];
+    factRows.forEach(([label, value]) => {
+      if (value) {
+        const dt = document.createElement('dt');
+        dt.textContent = label;
+        const dd = document.createElement('dd');
+        dd.textContent = value;
+        modalFacts.appendChild(dt);
+        modalFacts.appendChild(dd);
+      }
+    });
 
-<div class="torn-divider"></div>
+    // Awards
+    modalAwards.innerHTML = '';
+    if (f.awards && f.awards.length) {
+      const h = document.createElement('h4');
+      h.className = 'film-modal-awards-label';
+      h.textContent = 'Awards';
+      modalAwards.appendChild(h);
+      const ul = document.createElement('ul');
+      f.awards.forEach(a => {
+        const li = document.createElement('li');
+        li.textContent = a;
+        ul.appendChild(li);
+      });
+      modalAwards.appendChild(ul);
+    }
 
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <span class="footer-copy">© <span id="year"></span> Rarefaction Pictures</span>
-    <div class="footer-links">
-      <a href="mailto:rarefactionpicturesoutreach@gmail.com">Email</a>
-      <a href="https://www.instagram.com/rarefactionpictures/">Instagram</a>
-      <a href="https://www.reddit.com/user/rarefactionpictures/">Reddit</a>
-      <a href="https://youtube.com/@rarefactionfilm">YouTube</a>
-    </div>
-  </div>
-</footer>
+    backdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    modalClose.focus();
+  }
 
-<!-- ===== Film modal (shared by every short-film / feature card) ===== -->
-<div class="film-modal-backdrop" id="filmModalBackdrop">
-  <div class="film-modal" role="dialog" aria-modal="true" aria-labelledby="filmModalTitle">
-    <button class="film-modal-close" id="filmModalClose" aria-label="Close">✕</button>
-    <div class="film-modal-scroll">
-      <p class="film-modal-eyebrow" id="filmModalMeta"></p>
-      <h2 class="film-modal-title" id="filmModalTitle"></h2>
-      <div class="film-modal-video">
-        <video class="film-modal-video-el" id="filmModalVideoEl" controls playsinline></video>
-        <div class="film-modal-video-placeholder" id="filmModalVideoPlaceholder">[ Trailer goes here ]</div>
-      </div>
-      <dl class="film-modal-facts" id="filmModalFacts"></dl>
-      <div class="film-modal-awards" id="filmModalAwards"></div>
-    </div>
-  </div>
-</div>
+  function closeFilmModal() {
+    if (!backdrop) return;
+    backdrop.classList.remove('open');
+    document.body.style.overflow = '';
+    modalVideo.pause();
+    modalVideo.removeAttribute('src');
+    modalVideo.load();
+  }
 
-<script src="films-data.js"></script>
-<script src="main.js"></script>
-</body>
-</html>
+  if (backdrop) {
+    modalClose.addEventListener('click', closeFilmModal);
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeFilmModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && backdrop.classList.contains('open')) closeFilmModal();
+    });
+  }
+
+  // ---------- Work card click/keyboard handling ----------
+  document.querySelectorAll('.work-card[data-film], .work-card[data-youtube]').forEach(card => {
+    const activate = () => {
+      if (card.dataset.film) {
+        openFilmModal(card.dataset.film);
+      } else if (card.dataset.youtube) {
+        window.open(card.dataset.youtube, '_blank', 'noopener');
+      }
+    };
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', activate);
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activate();
+      }
+    });
+  });
+
+  // ================================================================
+  // CINEMATOGRAPHY CAROUSEL (only runs if the markup exists on the page)
+  // ================================================================
+  const track = document.querySelector('.cine-track');
+  const slides = document.querySelectorAll('.cine-slide');
+  const prevBtn = document.querySelector('.cine-arrow--prev');
+  const nextBtn = document.querySelector('.cine-arrow--next');
+  const dotsWrap = document.querySelector('.cine-dots');
+
+  if (track && slides.length) {
+    let index = 0;
+
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'cine-dot';
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const dots = dotsWrap.querySelectorAll('.cine-dot');
+
+    function render() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      render();
+    }
+
+    prevBtn.addEventListener('click', () => goTo(index - 1));
+    nextBtn.addEventListener('click', () => goTo(index + 1));
+    render();
+  }
+
+  // ================================================================
+  // REEL PLAYER — shows placeholder until a real <source> is added
+  // ================================================================
+  const reelVideo = document.querySelector('.reel-video');
+  const reelPlaceholder = document.getElementById('reelPlaceholderLabel');
+  const reelMuteBtn = document.querySelector('.reel-mute-toggle');
+
+  if (reelVideo) {
+    const hasSource = reelVideo.querySelector('source[src]:not([src=""])');
+    if (hasSource) {
+      if (reelPlaceholder) reelPlaceholder.style.display = 'none';
+      reelVideo.style.display = 'block';
+    } else {
+      if (reelPlaceholder) reelPlaceholder.style.display = 'flex';
+      reelVideo.style.display = 'none';
+    }
+  }
+
+  if (reelMuteBtn && reelVideo) {
+    reelMuteBtn.addEventListener('click', () => {
+      reelVideo.muted = !reelVideo.muted;
+      reelMuteBtn.textContent = reelVideo.muted ? '🔇' : '🔊';
+    });
+  }
+
+});

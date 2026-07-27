@@ -1,46 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Rarefaction Pictures</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="newsprint-bg"></div>
-<header class="site-header">
-  <a href="index.html" class="logo-mark">
-    <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
-  </a>
-  <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-  <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="work.html">Work</a>
-    <a href="cinematography.html">Cinematography</a>
-    <a href="about.html">About</a>
-    <a href="contact.html" aria-current="page">Contact</a>
-  </nav>
-</header>
-<div class="wrap contact-page">
-  <p class="eyebrow">Get in touch</p>
-  <a href="mailto:rarefactionpicturesoutreach@gmail.com" class="contact-email">
-    rarefactionpicturesoutreach@gmail.com
-  </a>
-</div>
-<footer class="site-footer">
-  <div class="wrap footer-inner">
-    <span class="footer-copy">© <span id="year"></span> Rarefaction Pictures</span>
-    <div class="footer-links">
-      <a href="mailto:rarefactionpicturesoutreach@gmail.com">Email</a>
-      <a href="https://www.instagram.com/rarefactionpictures/">Instagram</a>
-      <a href="https://www.reddit.com/user/rarefactionpictures/">Reddit</a>
-      <a href="https://youtube.com/@rarefactionfilm">YouTube</a>
-    </div>
-  </div>
-</footer>
-<script src="main.js"></script>
-</body>
-</html>
+// ================================================================
+// FILM DATA — edit this file to update what shows up in the trailer
+// modal. Each key must match a card's data-film="key" attribute
+// exactly (same key on the homepage card and the Work page card if
+// it's the same film in both places).
+//
+// Leave any field as an empty string "" or empty array [] if you
+// don't have that info yet — the modal skips blank fields instead
+// of showing them empty.
+//
+// trailerSrc: path to an mp4 once you have one, e.g. "videos/the-routine-trailer.mp4"
+// poster: a still image shown before the trailer plays, e.g. "images/the-routine-poster.jpg"
+// ================================================================
+
+const FILMS = {
+
+  "the-routine": {
+    title: "The Routine",
+    year: "2026",
+    runtime: "6 min",
+    type: "Short Film",
+    director: "Marlon Streb",
+    dp: "Avery Streb",
+    cast: [],
+    licensing: "",
+    awards: [],
+    whereToWatch: "",
+    trailerSrc: "",
+    poster: ""
+  },
+
+  "noon": {
+    title: "NOON",
+    year: "2024",
+    runtime: "28 min",
+    type: "Short Film",
+    director: "Marlon Streb",
+    dp: "Avery Streb",
+    cast: [],
+    licensing: "",
+    awards: [],
+    whereToWatch: "",
+    trailerSrc: "",
+    poster: ""
+  },
+
+  "daedalus": {
+    title: "Daedalus",
+    year: "2024",
+    runtime: "13 min",
+    type: "Short Film",
+    director: "Marlon Streb",
+    dp: "Avery Streb",
+    cast: [],
+    licensing: "",
+    awards: [],
+    whereToWatch: "",
+    trailerSrc: "",
+    poster: ""
+  }
+
+};
