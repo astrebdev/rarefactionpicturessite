@@ -1,6 +1,96 @@
-Drop video files here:
-- reel.mp4       -> cinematography.html reel player (uncomment the <source> tag once added)
-- trailers       -> reference these paths from films-data.js as trailerSrc, e.g. "videos/the-routine-trailer.mp4"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Rarefaction Pictures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="newsprint-bg"></div>
 
-Keep files reasonably compressed (h.264 mp4, under ~20-30MB per trailer)
-so the site doesn't feel slow to load.
+<header class="site-header">
+  <a href="index.html" class="logo-mark">
+    <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
+  </a>
+  <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+  <nav class="site-nav">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="cinematography.html">Cinematography</a>
+    <a href="about.html" aria-current="page">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="page-head">
+  <h1 class="page-title">About</h1>
+</div>
+
+<!-- EDIT ME: general company description -->
+<div class="wrap about-intro">
+  <p>
+    Rarefaction Pictures makes short films and features that sit in the
+    space between tension and release — stories that trust an audience
+    to feel the pressure build before anything happens on screen. We
+    work small, move fast, and care more about a held breath than a
+    jump scare.
+  </p>
+</div>
+
+<div class="torn-divider">
+</div>
+
+<!-- EDIT ME: bios below — replace each team-photo block with an
+     <img> once you have headshots. member-color drives the accent
+     line and role color, already matched to your logo. -->
+<div class="wrap team">
+
+  <div class="team-member" style="--member-color:var(--blue)">
+    <div class="team-photo">
+      <span>[ Photo: Avery Streb ]</span>
+    </div>
+    <h3 class="team-name">Avery Streb</h3>
+    <p class="team-role">Cinematographer</p>
+    <p class="team-bio">
+      Short bio goes here — background, influences, what draws Avery
+      to a shot. Two or three sentences is plenty.
+    </p>
+  </div>
+
+  <div class="team-member" style="--member-color:var(--orange)">
+    <div class="team-photo">
+      <span>[ Photo: Thanachai Pumma ]</span>
+    </div>
+    <h3 class="team-name">Thanachai Pumma</h3>
+    <p class="team-role">[ Role ]</p>
+    <p class="team-bio">
+      Short bio goes here — background, influences, what Thanachai
+      brings to the team. Two or three sentences is plenty.
+    </p>
+  </div>
+
+  <div class="team-member" style="--member-color:var(--red)">
+    <div class="team-photo">
+      <span>[ Photo: Marlon Streb ]</span>
+    </div>
+    <h3 class="team-name">Marlon Streb</h3>
+    <p class="team-role">Director</p>
+    <p class="team-bio">
+      Short bio goes here — background, influences, what draws Marlon
+      to a story. Two or three sentences is plenty.
+    </p>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <span>© <span id="year"></span> Rarefaction Pictures</span>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
