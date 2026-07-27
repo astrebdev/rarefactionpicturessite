@@ -14,7 +14,7 @@
 // "videos/the-routine-trailer.mp4"
 // ================================================================
 
-const PLACEHOLDER_VIDEO = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+const PLACEHOLDER_VIDEO = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4";
 
 const FILMS = {
 
