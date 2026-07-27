@@ -158,18 +158,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const dots = dotsWrap.querySelectorAll('.cine-dot');
 
-    function render() {
-      track.style.transform = `translateX(-${index * 100}%)`;
+    function updateDots() {
       dots.forEach((d, i) => d.classList.toggle('active', i === index));
     }
     function goTo(i) {
       index = (i + slides.length) % slides.length;
-      render();
+      track.scrollTo({ left: index * track.clientWidth, behavior: 'smooth' });
+      updateDots();
     }
 
     prevBtn.addEventListener('click', () => goTo(index - 1));
     nextBtn.addEventListener('click', () => goTo(index + 1));
-    render();
+
+    // keep dots in sync if the person swipes/scrolls manually
+    let scrollTimeout;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        index = Math.round(track.scrollLeft / track.clientWidth);
+        updateDots();
+      }, 100);
+    });
+
+    updateDots();
   }
 
   // ================================================================
