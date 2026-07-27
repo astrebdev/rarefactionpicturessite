@@ -452,13 +452,18 @@ img{ max-width:100%; display:block; }
 
 .cine-carousel .cine-track{
   display:flex;
-  overflow:hidden;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
   border:1px solid var(--line);
 }
+.cine-carousel .cine-track::-webkit-scrollbar{ display:none; }
 
 .cine-carousel .cine-slide{
   position:relative;
   flex:0 0 100%;
+  scroll-snap-align:start;
 }
 
 .cine-frame{
@@ -820,12 +825,34 @@ img{ max-width:100%; display:block; }
    ========================================================= */
 .site-footer{
   padding:32px;
-  text-align:center;
+  border-top:1px solid var(--line);
+}
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:16px;
+}
+.footer-copy{
   font-family:var(--font-mono);
   font-size:11px;
   color:var(--muted);
   letter-spacing:0.06em;
-  border-top:1px solid var(--line);
+}
+.footer-links{
+  display:flex;
+  gap:24px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+.footer-links a{ color:var(--muted); }
+.footer-links a:hover{ color:var(--ink); }
+
+@media (max-width:500px){
+  .footer-inner{ flex-direction:column; align-items:flex-start; }
 }
 
 /* =========================================================
