@@ -28,7 +28,7 @@
     <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
     <nav class="site-nav">
       <a href="index.html">Home</a>
-      <a href="work.html">Work</a>
+      <a href="work.html">Our Work</a>
       <a href="cinematography.html" aria-current="page">Cinematography</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
@@ -43,8 +43,8 @@
 -->
 <section class="reel">
   <div class="reel-player">
-    <video class="reel-video" autoplay muted loop playsinline>
-      <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+    <video class="reel-video" autoplay muted loop playsinline preload="auto" poster="https://picsum.photos/seed/reel-poster/1600/900">
+      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
     </video>
     <div class="reel-placeholder-label" id="reelPlaceholderLabel">
       [ Reel goes here ]<br>Drop an mp4 in <code>videos/</code> and update the &lt;source&gt; tag in this file
@@ -59,22 +59,24 @@
   to Marlon's photo, whenever that slide is active — write it as a
   short personal note about that shot/project.
 -->
+<p class="section-label" style="text-align:center; margin:56px 0 20px;">Stills</p>
+<div class="cine-mobile-wrap">
 <div class="cine-carousel">
   <div class="cine-track">
 
-    <div class="cine-slide active" data-caption="On The Routine, we wanted every object in frame to feel just slightly wrong before anything actually happens.">
+    <div class="cine-slide active" data-caption="Something something routine.">
       <div class="cine-frame"><img src="https://picsum.photos/seed/the-routine-wide/1600/900" alt="The Routine still"></div>
     </div>
 
-    <div class="cine-slide" data-caption="NOON was shot almost entirely with natural light — we chased the same hour of daylight for three days straight.">
+    <div class="cine-slide" data-caption="Something something Noon">
       <div class="cine-frame"><img src="https://picsum.photos/seed/noon-wide/1600/900" alt="NOON still"></div>
     </div>
 
-    <div class="cine-slide" data-caption="Daedalus started as a single image in my head: a hallway that doesn't end where it should. Everything else got built around that.">
+    <div class="cine-slide" data-caption="Something somethiing Daedalus">
       <div class="cine-frame"><img src="https://picsum.photos/seed/daedalus-wide/1600/900" alt="Daedalus still"></div>
     </div>
 
-    <div class="cine-slide" data-caption="Whatever comes next, it'll probably still be about the space right before something happens.">
+    <div class="cine-slide" data-caption="Whatever comes next, etc lorem ipsum">
       <div class="cine-frame"><img src="https://picsum.photos/seed/next-project-wide/1600/900" alt="Next project still"></div>
     </div>
 
@@ -83,6 +85,8 @@
   <button class="cine-arrow cine-arrow--prev" aria-label="Previous still">‹</button>
   <button class="cine-arrow cine-arrow--next" aria-label="Next still">›</button>
   <div class="cine-dots"></div>
+</div>
+<p class="cine-caption-mobile">Something something soething routine.</p>
 </div>
 
 <!-- ============ EDITORIAL: Marlon ============
@@ -97,7 +101,7 @@
     </div>
     <div class="editorial-split-text">
       <h2>Marlon Streb</h2>
-      <p>On The Routine, we wanted every object in frame to feel just slightly wrong before anything actually happens.</p>
+      <p>soethign routine lorem</p>
     </div>
   </div>
 </section>
