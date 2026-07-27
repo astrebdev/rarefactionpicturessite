@@ -44,7 +44,7 @@ html[data-theme="red"]{
 
 *{ box-sizing:border-box; margin:0; padding:0; }
 
-html{ scroll-behavior:smooth; }
+html{ scroll-behavior:smooth; overflow-y:scroll; }
 
 body{
   background:var(--bg);
@@ -54,7 +54,7 @@ body{
   line-height:1.6;
   position:relative;
   overflow-x:hidden;
-  transition:background-color .6s ease;
+  transition:background-color .4s ease;
 }
 
 /* grain texture, applied once, fixed over everything */
@@ -267,7 +267,7 @@ img{ max-width:100%; display:block; }
   background:var(--ink);
   color:var(--bg);
   text-shadow:none;
-  transform:translateY(-2px);
+  transform:translateY(-5px);
 }
 
 .hero-photo::after{
@@ -276,6 +276,31 @@ img{ max-width:100%; display:block; }
   height:5px;
   background:linear-gradient(90deg,var(--blue) 0 33.3%,var(--orange) 33.3% 66.6%,var(--red) 66.6% 100%);
   z-index:2;
+}
+
+@media (max-width:800px){
+  .hero-photo{
+    height:auto;
+    min-height:0;
+    overflow:visible;
+  }
+  .hero-photo-img{
+    position:static;
+    width:100%;
+    height:auto;
+    aspect-ratio:4/3;
+  }
+  .hero-photo::after{ display:none; }
+  .hero-wwu-btn{
+    position:static;
+    display:block;
+    width:100%;
+    text-align:center;
+    font-size:20px;
+    padding:22px 20px;
+    letter-spacing:0.06em;
+  }
+  .hero-wwu-btn:hover{ transform:none; }
 }
 
 .hero-text{ padding:48px 32px 60px; }
@@ -366,7 +391,7 @@ img{ max-width:100%; display:block; }
 .work-card{
   background:var(--bg-alt);
   border:1px solid var(--line);
-  transition:border-color .2s ease, transform .2s ease, background-color .6s ease;
+  transition:border-color .2s ease, transform .2s ease, background-color .4s ease;
 }
 .work-card:hover{ transform:translateY(-3px); }
 
@@ -472,7 +497,7 @@ img{ max-width:100%; display:block; }
   font-style:italic;
 }
 
-.work-archive{ padding:56px 0 80px; }
+.work-archive{ padding-top:56px; padding-bottom:80px; }
 
 /* =========================================================
    CINEMATOGRAPHY PAGE — carousel (contained, sits below the reel)
@@ -551,10 +576,39 @@ img{ max-width:100%; display:block; }
 .cine-dot.active{ background:var(--ink); }
 
 @media (max-width:900px){
-  .cine-carousel{ max-width:100%; padding:0 32px; }
-  .cine-arrow--prev{ left:8px; }
-  .cine-arrow--next{ right:8px; }
-  .cine-arrow{ width:36px; height:36px; font-size:18px; }
+  .cine-mobile-wrap{
+    display:flex;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:16px;
+    padding:0 24px;
+  }
+  .cine-carousel{
+    max-width:none;
+    flex:0 0 130px;
+    width:130px;
+    margin:0;
+  }
+  .cine-frame{ aspect-ratio:3/4; }
+  .cine-arrow{ width:26px; height:26px; font-size:14px; }
+  .cine-arrow--prev{ left:4px; }
+  .cine-arrow--next{ right:4px; }
+  .cine-dots{ margin-top:10px; }
+  .cine-caption-mobile{
+    display:block;
+    flex:1 1 180px;
+    font-family:var(--font-body);
+    font-size:14px;
+    line-height:1.65;
+    color:var(--muted);
+    padding-top:4px;
+    transition:opacity .3s ease;
+    opacity:1;
+  }
+  .cine-caption-mobile.fading{ opacity:0; }
+}
+@media (min-width:901px){
+  .cine-caption-mobile{ display:none; }
 }
 
 /* =========================================================
@@ -624,6 +678,14 @@ img{ max-width:100%; display:block; }
   display:block;
 }
 
+@media (max-width:800px){
+  .reel-player{
+    height:auto;
+    aspect-ratio:16/9;
+    min-height:0;
+  }
+  .reel-video{ object-fit:contain; background:#000; }
+}
 .reel-placeholder-label{
   position:absolute; inset:0;
   display:flex;
@@ -794,7 +856,8 @@ img{ max-width:100%; display:block; }
    ABOUT PAGE
    ========================================================= */
 .about-intro{
-  padding:60px 0 20px;
+  padding-top:60px;
+  padding-bottom:20px;
   max-width:680px;
   margin:0 auto;
   text-align:center;
@@ -802,7 +865,8 @@ img{ max-width:100%; display:block; }
 .about-intro p{ font-size:19px; color:var(--muted); }
 
 .team{
-  padding:60px 0 80px;
+  padding-top:60px;
+  padding-bottom:80px;
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:32px;
@@ -823,7 +887,7 @@ img{ max-width:100%; display:block; }
   object-fit:cover;
   display:block;
   filter:saturate(0.25);
-  transition:filter .5s ease;
+  transition:filter .4s ease;
 }
 .team-member.active-member .team-photo img{
   filter:saturate(1);
@@ -858,11 +922,13 @@ img{ max-width:100%; display:block; }
    CONTACT PAGE
    ========================================================= */
 .contact-page{
-  padding:80px 0 100px;
+  padding-top:80px;
+  padding-bottom:100px;
   text-align:center;
 }
 .contact-email{
   display:inline-block;
+  max-width:100%;
   font-family:var(--font-display);
   font-weight:800;
   font-size:clamp(24px,4vw,38px);
@@ -871,8 +937,14 @@ img{ max-width:100%; display:block; }
   padding-bottom:6px;
   margin:20px 0 40px;
   transition:border-color .2s ease;
+  overflow-wrap:anywhere;
+  word-break:break-word;
 }
 .contact-email:hover{ border-color:var(--orange); }
+
+@media (max-width:480px){
+  .contact-email{ font-size:20px; }
+}
 
 .contact-links{
   display:flex; gap:28px; justify-content:center;
