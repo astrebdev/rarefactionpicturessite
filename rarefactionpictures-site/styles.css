@@ -194,6 +194,36 @@ img{ max-width:100%; display:block; }
   overflow:hidden;
 }
 
+.hero-logo-overlay{
+  position:absolute;
+  top:24px;
+  right:24px;
+  width:min(220px, 28%);
+  height:auto;
+  z-index:3;
+}
+
+.hero-wwu-btn{
+  position:absolute;
+  bottom:24px;
+  left:24px;
+  z-index:3;
+  display:inline-block;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  padding:14px 26px;
+  background:var(--orange);
+  color:var(--bg);
+  transition:background .2s ease, transform .2s ease;
+}
+.hero-wwu-btn:hover{
+  background:var(--ink);
+  transform:translateY(-2px);
+}
+
 .hero-photo-label{
   font-family:var(--font-mono);
   font-size:12px;
