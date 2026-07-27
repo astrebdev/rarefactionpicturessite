@@ -31,37 +31,76 @@
   <p class="page-sub">Frames from behind the camera.</p>
 </div>
 
-<!-- EDIT ME: swap frame placeholders for real stills, one cine-card per shot/project -->
-<div class="wrap cine-grid">
-  <article class="cine-card">
-    <div class="cine-frame"><span>Frame 01</span></div>
-    <div class="cine-body">
-      <h3 class="cine-title">The Routine</h3>
-      <p class="cine-meta">DP: Avery Streb · 2025</p>
+<!-- ============ CAROUSEL ============
+  EDIT ME: each .cine-slide is one still. Copy a slide to add more.
+  On desktop, the title/year/DP bar rises on hover. On mobile it's
+  always visible below the image (see styles.css media query).
+  Swap the .cine-frame's <span> for a real <img> once you have stills.
+-->
+<div class="wrap">
+  <div class="cine-carousel">
+    <div class="cine-track">
+
+      <div class="cine-slide">
+        <div class="cine-frame"><span>Still 01</span></div>
+        <div class="cine-info-bar">
+          <span class="cine-info-title">The Routine</span>
+          <span class="cine-info-meta">2026 · DP: Avery Streb</span>
+        </div>
+      </div>
+
+      <div class="cine-slide">
+        <div class="cine-frame"><span>Still 02</span></div>
+        <div class="cine-info-bar">
+          <span class="cine-info-title">NOON</span>
+          <span class="cine-info-meta">2024 · DP: Avery Streb</span>
+        </div>
+      </div>
+
+      <div class="cine-slide">
+        <div class="cine-frame"><span>Still 03</span></div>
+        <div class="cine-info-bar">
+          <span class="cine-info-title">Daedalus</span>
+          <span class="cine-info-meta">2024 · DP: Avery Streb</span>
+        </div>
+      </div>
+
+      <div class="cine-slide">
+        <div class="cine-frame"><span>Still 04</span></div>
+        <div class="cine-info-bar">
+          <span class="cine-info-title">[ Next project ]</span>
+          <span class="cine-info-meta">— · DP: —</span>
+        </div>
+      </div>
+
     </div>
-  </article>
-  <article class="cine-card">
-    <div class="cine-frame"><span>Frame 02</span></div>
-    <div class="cine-body">
-      <h3 class="cine-title">NOON</h3>
-      <p class="cine-meta">DP: Avery Streb · 2024</p>
-    </div>
-  </article>
-  <article class="cine-card">
-    <div class="cine-frame"><span>Frame 03</span></div>
-    <div class="cine-body">
-      <h3 class="cine-title">Hollow Frequency</h3>
-      <p class="cine-meta">DP: Avery Streb · 2023</p>
-    </div>
-  </article>
-  <article class="cine-card">
-    <div class="cine-frame"><span>Frame 04</span></div>
-    <div class="cine-body">
-      <h3 class="cine-title">[ Next project ]</h3>
-      <p class="cine-meta">DP: — · —</p>
-    </div>
-  </article>
+
+    <button class="cine-arrow cine-arrow--prev" aria-label="Previous still">‹</button>
+    <button class="cine-arrow cine-arrow--next" aria-label="Next still">›</button>
+    <div class="cine-dots"></div>
+  </div>
 </div>
+
+<!-- ============ REEL ============
+  EDIT ME: drop your reel file in videos/reel.mp4, then uncomment
+  the <source> line below. Autoplay requires muted — the mute
+  button lets visitors turn sound on themselves. Until a source
+  is added, this shows a placeholder instead of a broken player.
+-->
+<section class="reel">
+  <div class="wrap">
+    <p class="section-label">Reel</p>
+    <div class="reel-player">
+      <video class="reel-video" autoplay muted loop playsinline>
+        <!-- <source src="videos/reel.mp4" type="video/mp4"> -->
+      </video>
+      <div class="reel-placeholder-label" id="reelPlaceholderLabel">
+        [ Reel goes here ]<br>Drop an mp4 in <code>videos/</code> and uncomment the &lt;source&gt; tag in this file
+      </div>
+      <button class="reel-mute-toggle" aria-label="Toggle sound">🔇</button>
+    </div>
+  </div>
+</section>
 
 <footer class="site-footer">
   <span>© <span id="year"></span> Rarefaction Pictures</span>
