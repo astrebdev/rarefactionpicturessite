@@ -8,9 +8,13 @@
 // don't have that info yet — the modal skips blank fields instead
 // of showing them empty.
 //
-// trailerSrc: path to an mp4 once you have one, e.g. "videos/the-routine-trailer.mp4"
-// poster: a still image shown before the trailer plays, e.g. "images/the-routine-poster.jpg"
+// trailerSrc currently points to a placeholder (Big Buck Bunny,
+// CC BY 3.0, Blender Foundation) just so the modal isn't empty.
+// Swap it for your real trailer file once you have one, e.g.
+// "videos/the-routine-trailer.mp4"
 // ================================================================
+
+const PLACEHOLDER_VIDEO = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
 
 const FILMS = {
 
@@ -25,8 +29,8 @@ const FILMS = {
     licensing: "",
     awards: [],
     whereToWatch: "",
-    trailerSrc: "",
-    poster: ""
+    trailerSrc: PLACEHOLDER_VIDEO,
+    poster: "https://picsum.photos/seed/the-routine-poster/1280/720"
   },
 
   "noon": {
@@ -40,8 +44,8 @@ const FILMS = {
     licensing: "",
     awards: [],
     whereToWatch: "",
-    trailerSrc: "",
-    poster: ""
+    trailerSrc: PLACEHOLDER_VIDEO,
+    poster: "https://picsum.photos/seed/noon-poster/1280/720"
   },
 
   "daedalus": {
@@ -55,8 +59,8 @@ const FILMS = {
     licensing: "",
     awards: [],
     whereToWatch: "",
-    trailerSrc: "",
-    poster: ""
+    trailerSrc: PLACEHOLDER_VIDEO,
+    poster: "https://picsum.photos/seed/daedalus-poster/1280/720"
   }
 
 };
