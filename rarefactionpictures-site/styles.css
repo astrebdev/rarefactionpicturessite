@@ -470,16 +470,18 @@ img{ max-width:100%; display:block; }
 .work-archive{ padding:56px 0 80px; }
 
 /* =========================================================
-   CINEMATOGRAPHY PAGE — carousel
+   CINEMATOGRAPHY PAGE — carousel (contained, sits below the reel)
    ========================================================= */
 .cine-carousel{
   position:relative;
-  width:100%;
+  max-width:760px;
+  margin:0 auto;
 }
 
 .cine-carousel .cine-track{
   position:relative;
   width:100%;
+  border:1px solid var(--line);
 }
 
 .cine-carousel .cine-slide{
@@ -509,55 +511,23 @@ img{ max-width:100%; display:block; }
   text-transform:uppercase; letter-spacing:0.08em;
 }
 
-.cine-info-bar{
-  position:absolute;
-  left:0; right:0; bottom:0;
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:16px;
-  padding:16px 22px;
-  background:rgba(19,17,19,0.88);
-  border-top:1px solid var(--line);
-  transform:translateY(100%);
-  transition:transform .25s ease;
-}
-.cine-slide:hover .cine-info-bar,
-.cine-slide:focus-within .cine-info-bar{
-  transform:translateY(0);
-}
-
-.cine-info-title{
-  font-family:var(--font-display);
-  font-weight:700;
-  font-size:15px;
-  text-transform:uppercase;
-  letter-spacing:0.02em;
-}
-.cine-info-meta{
-  font-family:var(--font-mono);
-  font-size:11px;
-  color:var(--muted);
-  white-space:nowrap;
-}
-
 .cine-arrow{
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  width:44px; height:44px;
+  width:40px; height:40px;
   border:1px solid var(--line);
   background:rgba(19,17,19,0.7);
   color:var(--ink);
-  font-size:22px;
+  font-size:20px;
   line-height:1;
   cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   transition:background .2s ease;
 }
 .cine-arrow:hover{ background:rgba(19,17,19,0.95); }
-.cine-arrow--prev{ left:14px; }
-.cine-arrow--next{ right:14px; }
+.cine-arrow--prev{ left:-54px; }
+.cine-arrow--next{ right:-54px; }
 
 .cine-dots{
   display:flex;
@@ -575,26 +545,20 @@ img{ max-width:100%; display:block; }
 }
 .cine-dot.active{ background:var(--ink); }
 
-@media (max-width:800px){
-  .cine-info-bar{
-    position:static;
-    transform:none;
-    background:var(--bg-alt);
-    flex-direction:column;
-    align-items:flex-start;
-    gap:4px;
-  }
+@media (max-width:900px){
+  .cine-carousel{ max-width:100%; padding:0 32px; }
+  .cine-arrow--prev{ left:8px; }
+  .cine-arrow--next{ right:8px; }
   .cine-arrow{ width:36px; height:36px; font-size:18px; }
 }
 
 /* =========================================================
-   REEL PLAYER
-   ========================================================= */
-/* =========================================================
-   EDITORIAL SPLIT — photo + text (e.g. Marlon on cinematography page)
+   EDITORIAL SPLIT — Marlon's photo stays fixed, the caption text
+   changes to match whichever carousel slide is active, with a
+   short fade between captions.
    ========================================================= */
 .editorial-split{
-  padding:70px 0;
+  padding:50px 0 70px;
 }
 .editorial-split-inner{
   display:grid;
@@ -624,19 +588,28 @@ img{ max-width:100%; display:block; }
   color:var(--muted);
   font-size:17px;
   line-height:1.75;
+  transition:opacity .3s ease;
+  opacity:1;
+}
+.editorial-split-text p.fading{
+  opacity:0;
 }
 
 @media (max-width:800px){
-  .editorial-split{ grid-template-columns:1fr; gap:24px; }
+  .editorial-split-inner{ grid-template-columns:1fr; gap:24px; }
 }
 
-.reel{ padding:20px 0 90px; }
+/* =========================================================
+   REEL PLAYER — full-bleed, sits at the top of the page
+   ========================================================= */
+.reel{ padding:0; }
 
 .reel-player{
   position:relative;
-  aspect-ratio:16/9;
+  width:100%;
+  height:min(80vh, 720px);
+  min-height:360px;
   background:repeating-linear-gradient(135deg,#221f21 0 2px,#19171a 2px 4px);
-  border:1px solid var(--line);
   overflow:hidden;
 }
 
@@ -667,14 +640,15 @@ img{ max-width:100%; display:block; }
 
 .reel-mute-toggle{
   position:absolute;
-  bottom:16px; right:16px;
-  width:40px; height:40px;
+  bottom:20px; right:20px;
+  width:44px; height:44px;
   border:1px solid var(--line);
   background:rgba(19,17,19,0.7);
   color:var(--ink);
-  font-size:16px;
+  font-size:17px;
   cursor:pointer;
   display:flex; align-items:center; justify-content:center;
+  z-index:2;
 }
 .reel-mute-toggle:hover{ background:rgba(19,17,19,0.95); }
 
