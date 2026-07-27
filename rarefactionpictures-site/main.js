@@ -211,4 +211,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ================================================================
+  // ABOUT PAGE: team members drive the site's color mode + saturation.
+  // Desktop (real hover): mouseenter/mouseleave per member.
+  // Touch/no-hover: whichever card is closest to viewport center wins,
+  // recalculated on scroll.
+  // ================================================================
+  const teamMembers = document.querySelectorAll('.team-member[data-member-theme]');
+  if (teamMembers.length) {
+    const pageDefaultTheme = document.documentElement.getAttribute('data-theme');
+    const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    function setActiveMember(member) {
+      teamMembers.forEach(m => m.classList.toggle('active-member', m === member));
+      if (member) {
+        document.documentElement.setAttribute('data-theme', member.dataset.memberTheme);
+      } else {
+        document.documentElement.setAttribute('data-theme', pageDefaultTheme);
+      }
+    }
+
+    if (supportsHover) {
+      teamMembers.forEach(member => {
+        member.addEventListener('mouseenter', () => setActiveMember(member));
+        member.addEventListener('mouseleave', () => setActiveMember(null));
+      });
+    } else {
+      let ticking = false;
+      function updateClosestToCenter() {
+        const viewportCenter = window.innerHeight / 2;
+        let closest = null;
+        let closestDist = Infinity;
+        teamMembers.forEach(member => {
+          const rect = member.getBoundingClientRect();
+          const memberCenter = rect.top + rect.height / 2;
+          const dist = Math.abs(memberCenter - viewportCenter);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closest = member;
+          }
+        });
+        setActiveMember(closest);
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(updateClosestToCenter);
+          ticking = true;
+        }
+      });
+      updateClosestToCenter();
+    }
+  }
+
 });
