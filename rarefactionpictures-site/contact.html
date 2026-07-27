@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Rarefaction Pictures</title>
+<title>Cinematography — Rarefaction Pictures</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -20,28 +20,98 @@
   <nav class="site-nav">
     <a href="index.html">Home</a>
     <a href="work.html">Work</a>
-    <a href="cinematography.html">Cinematography</a>
+    <a href="cinematography.html" aria-current="page">Cinematography</a>
     <a href="about.html">About</a>
-    <a href="contact.html" aria-current="page">Contact</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
-<div class="wrap contact-page">
-  <p class="eyebrow">Get in touch</p>
-  <!-- EDIT ME: swap for your real inbox -->
-  <a href="mailto:rarefactionpicturesoutreach@gmail.com" class="contact-email">
-    rarefactionpicturesoutreach@gmail.com
-  </a>
-  <div class="contact-links">
-    <!-- EDIT ME: point these at your real profiles, or delete any you don't use -->
-    <a href="https://www.instagram.com/rarefactionpictures/">Instagram</a>
-    <a href="https://www.reddit.com/user/rarefactionpictures/">Reddit</a>
-    <a href="https://youtube.com/@rarefactionfilm">Youtube</a>
+<div class="page-head">
+  <h1 class="page-title">Cinematography</h1>
+  <p class="page-sub">Frames from behind the camera.</p>
+</div>
+
+<!-- ============ CAROUSEL ============
+  EDIT ME: each .cine-slide is one still. Copy a slide to add more.
+  On desktop, the title/year/DP bar rises on hover. On mobile it's
+  always visible below the image (see styles.css media query).
+  Swap the .cine-frame's <span> for a real <img> once you have stills.
+-->
+<div class="wrap">
+  <div class="cine-carousel">
+    <div class="cine-track">
+
+      <div class="cine-slide">
+        <div class="cine-frame"><span>Still 01</span></div>
+        <div class="cine-info-bar">
+          <span class="cine-info-title">The Routine</span>
+          <span class="cine-info-meta">2026 · DP: Avery Streb</span>
+        </div>
+      </div>
+
+      <div class="cine-slide">
+        <div class="cine-frame"><span>Still 02</span></div>
+        <div class="cine-info-bar">
+          <span class="cine-info-title">NOON</span>
+          <span class="cine-info-meta">2024 · DP: Avery Streb</span>
+        </div>
+      </div>
+
+      <div class="cine-slide">
+        <div class="cine-frame"><span>Still 03</span></div>
+        <div class="cine-info-bar">
+          <span class="cine-info-title">Daedalus</span>
+          <span class="cine-info-meta">2024 · DP: Avery Streb</span>
+        </div>
+      </div>
+
+      <div class="cine-slide">
+        <div class="cine-frame"><span>Still 04</span></div>
+        <div class="cine-info-bar">
+          <span class="cine-info-title">[ Next project ]</span>
+          <span class="cine-info-meta">— · DP: —</span>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="cine-arrow cine-arrow--prev" aria-label="Previous still">‹</button>
+    <button class="cine-arrow cine-arrow--next" aria-label="Next still">›</button>
+    <div class="cine-dots"></div>
   </div>
 </div>
 
+<!-- ============ REEL ============
+  EDIT ME: drop your reel file in videos/reel.mp4, then uncomment
+  the <source> line below. Autoplay requires muted — the mute
+  button lets visitors turn sound on themselves. Until a source
+  is added, this shows a placeholder instead of a broken player.
+-->
+<section class="reel">
+  <div class="wrap">
+    <p class="section-label">Reel</p>
+    <div class="reel-player">
+      <video class="reel-video" autoplay muted loop playsinline>
+        <!-- <source src="videos/reel.mp4" type="video/mp4"> -->
+      </video>
+      <div class="reel-placeholder-label" id="reelPlaceholderLabel">
+        [ Reel goes here ]<br>Drop an mp4 in <code>videos/</code> and uncomment the &lt;source&gt; tag in this file
+      </div>
+      <button class="reel-mute-toggle" aria-label="Toggle sound">🔇</button>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer">
-  <span>© <span id="year"></span> Rarefaction Pictures</span>
+  <div class="wrap footer-inner">
+    <span class="footer-copy">© <span id="year"></span> Rarefaction Pictures</span>
+    <div class="footer-links">
+      <a href="mailto:rarefactionpicturesoutreach@gmail.com">Email</a>
+      <a href="https://www.instagram.com/rarefactionpictures/">Instagram</a>
+      <a href="https://www.reddit.com/user/rarefactionpictures/">Reddit</a>
+      <a href="https://youtube.com/@rarefactionfilm">YouTube</a>
+    </div>
+  </div>
 </footer>
 
 <script src="main.js"></script>

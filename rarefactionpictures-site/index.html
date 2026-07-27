@@ -1,128 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rarefaction Pictures</title>
-<meta name="description" content="Rarefaction Pictures - short films, features, and short-form content.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="newsprint-bg"></div>
+// ================================================================
+// FILM DATA — edit this file to update what shows up in the trailer
+// modal. Each key must match a card's data-film="key" attribute
+// exactly (same key on the homepage card and the Work page card if
+// it's the same film in both places).
+//
+// Leave any field as an empty string "" or empty array [] if you
+// don't have that info yet — the modal skips blank fields instead
+// of showing them empty.
+//
+// trailerSrc: path to an mp4 once you have one, e.g. "videos/the-routine-trailer.mp4"
+// poster: a still image shown before the trailer plays, e.g. "images/the-routine-poster.jpg"
+// ================================================================
 
-<header class="site-header">
-  <a href="index.html" class="logo-mark">
-    <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
-  </a>
-  <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-  <nav class="site-nav">
-    <a href="index.html" aria-current="page">Home</a>
-    <a href="work.html">Work</a>
-    <a href="cinematography.html">Cinematography</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+const FILMS = {
 
-<section class="hero">
-  <div class="hero-photo">
-    <p class="hero-photo-label">[ Team photo goes here ]<br>Grayscale, wide crop, ~1600×600</p>
-    <img src="images/logo-full.png" alt="Rarefaction Pictures" class="hero-logo-overlay">
-    <a href="contact.html" class="hero-wwu-btn">Work With Us</a>
-  </div>
-  <h1 class="visually-hidden">Rarefaction Pictures</h1>
-</section>
+  "the-routine": {
+    title: "The Routine",
+    year: "2026",
+    runtime: "6 min",
+    type: "Short Film",
+    director: "Marlon Streb",
+    dp: "Avery Streb",
+    cast: [],
+    licensing: "",
+    awards: [],
+    whereToWatch: "",
+    trailerSrc: "",
+    poster: ""
+  },
 
-<div class="torn-divider"></div>
+  "noon": {
+    title: "NOON",
+    year: "2024",
+    runtime: "28 min",
+    type: "Short Film",
+    director: "Marlon Streb",
+    dp: "Avery Streb",
+    cast: [],
+    licensing: "",
+    awards: [],
+    whereToWatch: "",
+    trailerSrc: "",
+    poster: ""
+  },
 
-<section class="latest-work">
-  <div class="wrap">
-    <p class="section-label">Latest Work</p>
+  "daedalus": {
+    title: "Daedalus",
+    year: "2024",
+    runtime: "13 min",
+    type: "Short Film",
+    director: "Marlon Streb",
+    dp: "Avery Streb",
+    cast: [],
+    licensing: "",
+    awards: [],
+    whereToWatch: "",
+    trailerSrc: "",
+    poster: ""
+  }
 
-    <div class="work-category">
-      <div class="work-category-head">
-        <h2 class="work-category-title"><span class="accent-dot" style="background:var(--red)"></span>Short Films</h2>
-        <a href="work.html" class="work-category-link">View all →</a>
-      </div>
-      <div class="work-row">
-        <article class="work-card" data-film="the-routine" tabindex="0" role="button">
-          <div class="work-card-frame"><span>Still</span></div>
-          <div class="work-card-body">
-            <h3 class="work-card-title">The Routine</h3>
-            <p class="work-card-meta">2026 · 6 min</p>
-          </div>
-        </article>
-        <article class="work-card" data-film="noon" tabindex="0" role="button">
-          <div class="work-card-frame"><span>Still</span></div>
-          <div class="work-card-body">
-            <h3 class="work-card-title">NOON</h3>
-            <p class="work-card-meta">2024 · 28 min</p>
-          </div>
-        </article>
-        <article class="work-card" data-film="daedalus" tabindex="0" role="button">
-          <div class="work-card-frame"><span>Still</span></div>
-          <div class="work-card-body">
-            <h3 class="work-card-title">Daedalus</h3>
-            <p class="work-card-meta">2024 · 13 min</p>
-          </div>
-        </article>
-      </div>
-    </div>
-
-    <div class="work-category">
-      <div class="work-category-head">
-        <h2 class="work-category-title"><span class="accent-dot" style="background:var(--orange)"></span>Features</h2>
-        <a href="work.html" class="work-category-link">View all →</a>
-      </div>
-      <div class="work-row">
-        <div class="work-empty">
-          <p>First feature currently in development</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="work-category">
-      <div class="work-category-head">
-        <h2 class="work-category-title"><span class="accent-dot" style="background:var(--blue)"></span>Short-Form</h2>
-        <a href="work.html" class="work-category-link">View all →</a>
-      </div>
-      <div class="work-row">
-        <div class="work-empty">
-          <p>Coming soon</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="torn-divider"></div>
-
-<footer class="site-footer">
-  <span>© <span id="year"></span> Rarefaction Pictures</span>
-</footer>
-
-<!-- ===== Film modal (shared by every short-film / feature card) ===== -->
-<div class="film-modal-backdrop" id="filmModalBackdrop">
-  <div class="film-modal" role="dialog" aria-modal="true" aria-labelledby="filmModalTitle">
-    <button class="film-modal-close" id="filmModalClose" aria-label="Close">✕</button>
-    <div class="film-modal-scroll">
-      <p class="film-modal-eyebrow" id="filmModalMeta"></p>
-      <h2 class="film-modal-title" id="filmModalTitle"></h2>
-      <div class="film-modal-video">
-        <video class="film-modal-video-el" id="filmModalVideoEl" controls playsinline></video>
-        <div class="film-modal-video-placeholder" id="filmModalVideoPlaceholder">[ Trailer goes here ]</div>
-      </div>
-      <dl class="film-modal-facts" id="filmModalFacts"></dl>
-      <div class="film-modal-awards" id="filmModalAwards"></div>
-    </div>
-  </div>
-</div>
-
-<script src="films-data.js"></script>
-<script src="main.js"></script>
-</body>
-</html>
+};
