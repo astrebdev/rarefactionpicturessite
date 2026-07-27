@@ -25,7 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (wwuBtn) {
     const theme = document.documentElement.getAttribute('data-theme');
     const accentByTheme = { blue: 'var(--blue)', orange: 'var(--orange)', red: 'var(--red)' };
+    const glowRgbByTheme = { blue: '111,163,199', orange: '232,168,87', red: '225,92,86' };
     wwuBtn.style.background = accentByTheme[theme] || 'var(--orange)';
+    const glowRgb = glowRgbByTheme[theme] || glowRgbByTheme.orange;
+    wwuBtn.style.boxShadow = `0 0 26px rgba(${glowRgb}, 0.55), 0 0 54px rgba(${glowRgb}, 0.28)`;
   }
 
   // ================================================================
