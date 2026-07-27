@@ -20,11 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ---------- Work With Us button: random accent color each load ----------
+  // ---------- Work With Us button: matches the page's current color mode ----------
   const wwuBtn = document.querySelector('.hero-wwu-btn');
   if (wwuBtn) {
-    const accents = ['var(--blue)', 'var(--orange)', 'var(--red)'];
-    wwuBtn.style.background = accents[Math.floor(Math.random() * accents.length)];
+    const theme = document.documentElement.getAttribute('data-theme');
+    const accentByTheme = { blue: 'var(--blue)', orange: 'var(--orange)', red: 'var(--red)' };
+    wwuBtn.style.background = accentByTheme[theme] || 'var(--orange)';
   }
 
   // ================================================================
@@ -148,6 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (track && slides.length) {
     let index = 0;
+    const captionEl = document.querySelector('.editorial-split-text p');
 
     slides.forEach((_, i) => {
       const dot = document.createElement('button');
@@ -158,29 +160,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const dots = dotsWrap.querySelectorAll('.cine-dot');
 
-    function updateDots() {
+    function applyCaption() {
+      if (!captionEl) return;
+      const newText = slides[index].dataset.caption || '';
+      captionEl.classList.add('fading');
+      setTimeout(() => {
+        captionEl.textContent = newText;
+        captionEl.classList.remove('fading');
+      }, 300);
+    }
+
+    function render() {
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
       dots.forEach((d, i) => d.classList.toggle('active', i === index));
     }
     function goTo(i) {
       index = (i + slides.length) % slides.length;
-      track.scrollTo({ left: index * track.clientWidth, behavior: 'smooth' });
-      updateDots();
+      render();
+      applyCaption();
     }
 
     prevBtn.addEventListener('click', () => goTo(index - 1));
     nextBtn.addEventListener('click', () => goTo(index + 1));
-
-    // keep dots in sync if the person swipes/scrolls manually
-    let scrollTimeout;
-    track.addEventListener('scroll', () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        index = Math.round(track.scrollLeft / track.clientWidth);
-        updateDots();
-      }, 100);
-    });
-
-    updateDots();
+    render();
+    if (captionEl) captionEl.textContent = slides[index].dataset.caption || '';
   }
 
   // ================================================================
@@ -206,6 +209,59 @@ document.addEventListener('DOMContentLoaded', () => {
       reelVideo.muted = !reelVideo.muted;
       reelMuteBtn.textContent = reelVideo.muted ? '🔇' : '🔊';
     });
+  }
+
+  // ================================================================
+  // ABOUT PAGE: team members drive the site's color mode + saturation.
+  // Desktop (real hover): mouseenter/mouseleave per member.
+  // Touch/no-hover: whichever card is closest to viewport center wins,
+  // recalculated on scroll.
+  // ================================================================
+  const teamMembers = document.querySelectorAll('.team-member[data-member-theme]');
+  if (teamMembers.length) {
+    const pageDefaultTheme = document.documentElement.getAttribute('data-theme');
+    const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    function setActiveMember(member) {
+      teamMembers.forEach(m => m.classList.toggle('active-member', m === member));
+      if (member) {
+        document.documentElement.setAttribute('data-theme', member.dataset.memberTheme);
+      } else {
+        document.documentElement.setAttribute('data-theme', pageDefaultTheme);
+      }
+    }
+
+    if (supportsHover) {
+      teamMembers.forEach(member => {
+        member.addEventListener('mouseenter', () => setActiveMember(member));
+        member.addEventListener('mouseleave', () => setActiveMember(null));
+      });
+    } else {
+      let ticking = false;
+      function updateClosestToCenter() {
+        const viewportCenter = window.innerHeight / 2;
+        let closest = null;
+        let closestDist = Infinity;
+        teamMembers.forEach(member => {
+          const rect = member.getBoundingClientRect();
+          const memberCenter = rect.top + rect.height / 2;
+          const dist = Math.abs(memberCenter - viewportCenter);
+          if (dist < closestDist) {
+            closestDist = dist;
+            closest = member;
+          }
+        });
+        setActiveMember(closest);
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(updateClosestToCenter);
+          ticking = true;
+        }
+      });
+      updateClosestToCenter();
+    }
   }
 
 });

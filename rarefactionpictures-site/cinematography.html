@@ -1,104 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+(function(){
+  var modes = ['blue','orange','red'];
+  var m = modes[Math.floor(Math.random()*modes.length)];
+  document.documentElement.setAttribute('data-theme', m);
+})();
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cinematography — Rarefaction Pictures</title>
+<link rel="icon" type="image/png" href="images/logo-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="images/logo-icon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="newsprint-bg"></div>
 
 <header class="site-header">
-  <a href="index.html" class="logo-mark">
-    <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
-  </a>
-  <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-  <nav class="site-nav">
-    <a href="index.html">Home</a>
-    <a href="work.html">Work</a>
-    <a href="cinematography.html" aria-current="page">Cinematography</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <div class="site-header-inner">
+    <a href="index.html" class="logo-mark">
+      <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="work.html">Work</a>
+      <a href="cinematography.html" aria-current="page">Cinematography</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<div class="page-head">
-  <h1 class="page-title">Cinematography</h1>
-  <p class="page-sub">Frames from behind the camera.</p>
-</div>
-
-<!-- ============ CAROUSEL ============
-  EDIT ME: each .cine-slide is one still. Copy a slide to add more.
-  On desktop, the title/year/DP bar rises on hover. On mobile it's
-  always visible below the image (see styles.css media query).
-  Swap the .cine-frame's <span> for a real <img> once you have stills.
--->
-<div class="wrap">
-  <div class="cine-carousel">
-    <div class="cine-track">
-
-      <div class="cine-slide active">
-        <div class="cine-frame"><span>Still 01</span></div>
-        <div class="cine-info-bar">
-          <span class="cine-info-title">The Routine</span>
-          <span class="cine-info-meta">2026 · DP: Avery Streb</span>
-        </div>
-      </div>
-
-      <div class="cine-slide">
-        <div class="cine-frame"><span>Still 02</span></div>
-        <div class="cine-info-bar">
-          <span class="cine-info-title">NOON</span>
-          <span class="cine-info-meta">2024 · DP: Avery Streb</span>
-        </div>
-      </div>
-
-      <div class="cine-slide">
-        <div class="cine-frame"><span>Still 03</span></div>
-        <div class="cine-info-bar">
-          <span class="cine-info-title">Daedalus</span>
-          <span class="cine-info-meta">2024 · DP: Avery Streb</span>
-        </div>
-      </div>
-
-      <div class="cine-slide">
-        <div class="cine-frame"><span>Still 04</span></div>
-        <div class="cine-info-bar">
-          <span class="cine-info-title">[ Next project ]</span>
-          <span class="cine-info-meta">— · DP: —</span>
-        </div>
-      </div>
-
-    </div>
-
-    <button class="cine-arrow cine-arrow--prev" aria-label="Previous still">‹</button>
-    <button class="cine-arrow cine-arrow--next" aria-label="Next still">›</button>
-    <div class="cine-dots"></div>
-  </div>
-</div>
-
-<!-- ============ REEL ============
-  EDIT ME: drop your reel file in videos/reel.mp4, then uncomment
-  the <source> line below. Autoplay requires muted — the mute
-  button lets visitors turn sound on themselves. Until a source
-  is added, this shows a placeholder instead of a broken player.
+<!-- ============ REEL — full-bleed, top of page ============
+  EDIT ME: currently playing a placeholder (Big Buck Bunny, CC BY 3.0,
+  Blender Foundation) so the player isn't empty. Replace the <source>
+  src below with your real reel once you have one.
 -->
 <section class="reel">
-  <div class="wrap">
-    <p class="section-label">Reel</p>
-    <div class="reel-player">
-      <video class="reel-video" autoplay muted loop playsinline>
-        <!-- <source src="videos/reel.mp4" type="video/mp4"> -->
-      </video>
-      <div class="reel-placeholder-label" id="reelPlaceholderLabel">
-        [ Reel goes here ]<br>Drop an mp4 in <code>videos/</code> and uncomment the &lt;source&gt; tag in this file
-      </div>
-      <button class="reel-mute-toggle" aria-label="Toggle sound">🔇</button>
+  <div class="reel-player">
+    <video class="reel-video" autoplay muted loop playsinline>
+      <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+    </video>
+    <div class="reel-placeholder-label" id="reelPlaceholderLabel">
+      [ Reel goes here ]<br>Drop an mp4 in <code>videos/</code> and update the &lt;source&gt; tag in this file
+    </div>
+    <button class="reel-mute-toggle" aria-label="Toggle sound">🔇</button>
+  </div>
+</section>
+
+<!-- ============ CAROUSEL — contained, sits below the reel ============
+  EDIT ME: each .cine-slide is one still. Copy a slide to add more.
+  data-caption is the text that appears in the section below, next
+  to Marlon's photo, whenever that slide is active — write it as a
+  short personal note about that shot/project.
+-->
+<div class="cine-carousel">
+  <div class="cine-track">
+
+    <div class="cine-slide active" data-caption="On The Routine, we wanted every object in frame to feel just slightly wrong before anything actually happens.">
+      <div class="cine-frame"><img src="https://picsum.photos/seed/the-routine-wide/1600/900" alt="The Routine still"></div>
+    </div>
+
+    <div class="cine-slide" data-caption="NOON was shot almost entirely with natural light — we chased the same hour of daylight for three days straight.">
+      <div class="cine-frame"><img src="https://picsum.photos/seed/noon-wide/1600/900" alt="NOON still"></div>
+    </div>
+
+    <div class="cine-slide" data-caption="Daedalus started as a single image in my head: a hallway that doesn't end where it should. Everything else got built around that.">
+      <div class="cine-frame"><img src="https://picsum.photos/seed/daedalus-wide/1600/900" alt="Daedalus still"></div>
+    </div>
+
+    <div class="cine-slide" data-caption="Whatever comes next, it'll probably still be about the space right before something happens.">
+      <div class="cine-frame"><img src="https://picsum.photos/seed/next-project-wide/1600/900" alt="Next project still"></div>
+    </div>
+
+  </div>
+
+  <button class="cine-arrow cine-arrow--prev" aria-label="Previous still">‹</button>
+  <button class="cine-arrow cine-arrow--next" aria-label="Next still">›</button>
+  <div class="cine-dots"></div>
+</div>
+
+<!-- ============ EDITORIAL: Marlon ============
+  EDIT ME: swap the photo src whenever you're ready. The paragraph
+  text below updates automatically to match the active carousel
+  slide above — edit the captions on the slides themselves, not here.
+-->
+<section class="editorial-split">
+  <div class="wrap editorial-split-inner">
+    <div class="editorial-split-photo">
+      <img src="https://picsum.photos/seed/marlon-editorial/800/1000" alt="Marlon Streb">
+    </div>
+    <div class="editorial-split-text">
+      <h2>Marlon Streb</h2>
+      <p>On The Routine, we wanted every object in frame to feel just slightly wrong before anything actually happens.</p>
     </div>
   </div>
 </section>
