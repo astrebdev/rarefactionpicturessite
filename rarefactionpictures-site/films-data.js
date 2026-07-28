@@ -23,15 +23,15 @@ const FILMS = {
     year: "2026",
     runtime: "6 min",
     type: "Short Film",
-    director: "Marlon Streb",
+    director: "Avery Streb, Shawna Streb",
     producer: "",
-    dp: "Avery Streb",
-    starring: [],
+    dp: "Marlon Streb",
+    starring: "Billy Gulkin, Avery Streb",
     licensing: "",
     awards: [],
     whereToWatch: "",
     trailerSrc: PLACEHOLDER_VIDEO,
-    poster: "https://picsum.photos/seed/the-routine-poster/1280/720"
+    poster: ""
   },
 
   "noon": {
@@ -39,15 +39,15 @@ const FILMS = {
     year: "2024",
     runtime: "28 min",
     type: "Short Film",
-    director: "Marlon Streb",
+    director: "Avery Streb, Marlon Streb",
     producer: "",
-    dp: "Avery Streb",
-    starring: [],
+    dp: "Marlon Streb, Avery Streb",
+    starring: "Marlon Streb, Levi Hammond",
     licensing: "",
-    awards: [],
+    awards: "Best VFX - SIMI Film Festival",
     whereToWatch: "",
     trailerSrc: PLACEHOLDER_VIDEO,
-    poster: "https://picsum.photos/seed/noon-poster/1280/720"
+    poster: ""
   },
 
   "daedalus": {
@@ -55,15 +55,15 @@ const FILMS = {
     year: "2024",
     runtime: "13 min",
     type: "Short Film",
-    director: "Marlon Streb",
+    director: "Avery Streb",
     producer: "",
-    dp: "Avery Streb",
-    starring: [],
+    dp: "Marlon Streb",
+    starring: "Hunter Uliasz, Morgan Jamison",
     licensing: "",
     awards: [],
     whereToWatch: "",
     trailerSrc: PLACEHOLDER_VIDEO,
-    poster: "https://picsum.photos/seed/daedalus-poster/1280/720"
+    poster: ""
   }
 
 };
