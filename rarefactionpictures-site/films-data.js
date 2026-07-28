@@ -31,7 +31,7 @@ const FILMS = {
     awards: [],
     whereToWatch: "",
     trailerSrc: PLACEHOLDER_VIDEO,
-    poster: "https://picsum.photos/seed/the-routine-poster/1280/720"
+    poster: ""
   },
 
   "noon": {
@@ -47,7 +47,7 @@ const FILMS = {
     awards: "Best VFX - SIMI Film Festival",
     whereToWatch: "",
     trailerSrc: PLACEHOLDER_VIDEO,
-    poster: "https://picsum.photos/seed/noon-poster/1280/720"
+    poster: ""
   },
 
   "daedalus": {
@@ -63,7 +63,7 @@ const FILMS = {
     awards: [],
     whereToWatch: "",
     trailerSrc: PLACEHOLDER_VIDEO,
-    poster: "https://picsum.photos/seed/daedalus-poster/1280/720"
+    poster: ""
   }
 
 };
