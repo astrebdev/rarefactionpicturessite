@@ -58,7 +58,7 @@ const FILMS = {
     director: "Avery Streb",
     producer: "",
     dp: "Marlon Streb",
-    starring: "Hunter Uliasz, Morgan Jamison,
+    starring: "Hunter Uliasz, Morgan Jamison",
     licensing: "",
     awards: [],
     whereToWatch: "",
