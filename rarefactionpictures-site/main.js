@@ -83,15 +83,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Awards
+    // Awards — accepts either a string or an array in films-data.js
     modalAwards.innerHTML = '';
-    if (f.awards && f.awards.length) {
+    const awardsList = Array.isArray(f.awards) ? f.awards : (f.awards ? [f.awards] : []);
+    if (awardsList.length) {
       const h = document.createElement('h4');
       h.className = 'film-modal-awards-label';
       h.textContent = 'Awards';
       modalAwards.appendChild(h);
       const ul = document.createElement('ul');
-      f.awards.forEach(a => {
+      awardsList.forEach(a => {
         const li = document.createElement('li');
         li.textContent = a;
         ul.appendChild(li);
