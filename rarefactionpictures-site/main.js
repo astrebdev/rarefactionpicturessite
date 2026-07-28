@@ -66,8 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
     modalFacts.innerHTML = '';
     const factRows = [
       ['Director', f.director],
+      ['Producer', f.producer],
       ['Cinematographer', f.dp],
-      ['Cast', Array.isArray(f.cast) ? f.cast.join(', ') : f.cast],
+      ['Starring', Array.isArray(f.starring) ? f.starring.join(', ') : f.starring],
       ['Licensing', f.licensing],
       ['Where to Watch', f.whereToWatch]
     ];
@@ -153,7 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (track && slides.length) {
     let index = 0;
     const captionEl = document.querySelector('.editorial-split-text p');
-    const mobileCaptionEl = document.querySelector('.cine-caption-mobile');
 
     slides.forEach((_, i) => {
       const dot = document.createElement('button');
@@ -165,22 +165,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = dotsWrap.querySelectorAll('.cine-dot');
 
     function applyCaption() {
+      if (!captionEl) return;
       const newText = slides[index].dataset.caption || '';
-      if (captionEl) {
-        captionEl.classList.add('fading');
-      }
-      if (mobileCaptionEl) {
-        mobileCaptionEl.classList.add('fading');
-      }
+      captionEl.classList.add('fading');
       setTimeout(() => {
-        if (captionEl) {
-          captionEl.textContent = newText;
-          captionEl.classList.remove('fading');
-        }
-        if (mobileCaptionEl) {
-          mobileCaptionEl.textContent = newText;
-          mobileCaptionEl.classList.remove('fading');
-        }
+        captionEl.textContent = newText;
+        captionEl.classList.remove('fading');
       }, 300);
     }
 
@@ -198,7 +188,6 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', () => goTo(index + 1));
     render();
     if (captionEl) captionEl.textContent = slides[index].dataset.caption || '';
-    if (mobileCaptionEl) mobileCaptionEl.textContent = slides[index].dataset.caption || '';
   }
 
   // ================================================================

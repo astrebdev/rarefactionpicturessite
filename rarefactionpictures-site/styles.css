@@ -288,7 +288,7 @@ img{ max-width:100%; display:block; }
     position:static;
     width:100%;
     height:auto;
-    aspect-ratio:4/3;
+    aspect-ratio:16/9;
   }
   .hero-photo::after{ display:none; }
   .hero-wwu-btn{
@@ -500,12 +500,23 @@ img{ max-width:100%; display:block; }
 .work-archive{ padding-top:56px; padding-bottom:80px; }
 
 /* =========================================================
-   CINEMATOGRAPHY PAGE — carousel (contained, sits below the reel)
+   CINEMATOGRAPHY PAGE — carousel + Marlon caption, one unified
+   grid so everything shares the same left/right edges. Carousel
+   spans the full width; photo (left) and caption (right) sit in
+   a row beneath it, same column widths on every screen size.
    ========================================================= */
+.cine-unit{ padding:50px 0 70px; }
+
+.cine-unit-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px 48px;
+  align-items:start;
+}
+
 .cine-carousel{
+  grid-column:1 / -1;
   position:relative;
-  max-width:760px;
-  margin:0 auto;
 }
 
 .cine-carousel .cine-track{
@@ -554,10 +565,11 @@ img{ max-width:100%; display:block; }
   cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   transition:background .2s ease;
+  z-index:2;
 }
 .cine-arrow:hover{ background:rgba(19,17,19,0.95); }
-.cine-arrow--prev{ left:-54px; }
-.cine-arrow--next{ right:-54px; }
+.cine-arrow--prev{ left:12px; }
+.cine-arrow--next{ right:12px; }
 
 .cine-dots{
   display:flex;
@@ -575,57 +587,8 @@ img{ max-width:100%; display:block; }
 }
 .cine-dot.active{ background:var(--ink); }
 
-@media (max-width:900px){
-  .cine-mobile-wrap{
-    display:flex;
-    align-items:flex-start;
-    flex-wrap:wrap;
-    gap:16px;
-    padding:0 24px;
-  }
-  .cine-carousel{
-    max-width:none;
-    flex:0 0 130px;
-    width:130px;
-    margin:0;
-  }
-  .cine-frame{ aspect-ratio:3/4; }
-  .cine-arrow{ width:26px; height:26px; font-size:14px; }
-  .cine-arrow--prev{ left:4px; }
-  .cine-arrow--next{ right:4px; }
-  .cine-dots{ margin-top:10px; }
-  .cine-caption-mobile{
-    display:block;
-    flex:1 1 180px;
-    font-family:var(--font-body);
-    font-size:14px;
-    line-height:1.65;
-    color:var(--muted);
-    padding-top:4px;
-    transition:opacity .3s ease;
-    opacity:1;
-  }
-  .cine-caption-mobile.fading{ opacity:0; }
-}
-@media (min-width:901px){
-  .cine-caption-mobile{ display:none; }
-}
-
-/* =========================================================
-   EDITORIAL SPLIT — Marlon's photo stays fixed, the caption text
-   changes to match whichever carousel slide is active, with a
-   short fade between captions.
-   ========================================================= */
-.editorial-split{
-  padding:50px 0 70px;
-}
-.editorial-split-inner{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:48px;
-  align-items:center;
-}
 .editorial-split-photo{
+  grid-column:1;
   aspect-ratio:4/5;
   overflow:hidden;
   background:repeating-linear-gradient(135deg,#221f21 0 2px,#19171a 2px 4px);
@@ -636,12 +599,17 @@ img{ max-width:100%; display:block; }
   display:block;
   filter:grayscale(0.4);
 }
+
+.editorial-split-text{
+  grid-column:2;
+  align-self:center;
+}
 .editorial-split-text h2{
   font-family:var(--font-display);
   font-weight:800;
-  font-size:clamp(24px,3vw,34px);
+  font-size:clamp(22px,3vw,34px);
   text-transform:uppercase;
-  margin-bottom:18px;
+  margin-bottom:14px;
 }
 .editorial-split-text p{
   color:var(--muted);
@@ -655,7 +623,14 @@ img{ max-width:100%; display:block; }
 }
 
 @media (max-width:800px){
-  .editorial-split-inner{ grid-template-columns:1fr; gap:24px; }
+  .cine-unit-grid{
+    grid-template-columns:110px 1fr;
+    gap:16px 18px;
+  }
+  .cine-arrow{ width:32px; height:32px; font-size:16px; }
+  .editorial-split-photo{ aspect-ratio:4/5; }
+  .editorial-split-text h2{ font-size:17px; margin-bottom:6px; }
+  .editorial-split-text p{ font-size:14px; line-height:1.6; }
 }
 
 /* =========================================================
@@ -1012,9 +987,7 @@ img{ max-width:100%; display:block; }
     cursor:pointer; z-index:101;
   }
   .work-row{ grid-template-columns:1fr; }
-  .cine-grid{ grid-template-columns:1fr; }
   .team{ grid-template-columns:1fr; }
-  .hero-photo{ height:280px; }
 }
 
 @media (prefers-reduced-motion:reduce){
