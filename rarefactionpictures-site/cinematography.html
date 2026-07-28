@@ -53,56 +53,52 @@
   </div>
 </section>
 
-<!-- ============ CAROUSEL — contained, sits below the reel ============
+<!-- ============ STILLS + MARLON — one unified block ============
   EDIT ME: each .cine-slide is one still. Copy a slide to add more.
-  data-caption is the text that appears in the section below, next
-  to Marlon's photo, whenever that slide is active — write it as a
-  short personal note about that shot/project.
+  data-caption is the text that appears next to Marlon's photo below,
+  whenever that slide is active — write it as a short personal note
+  about that shot/project. The carousel spans the full width; the
+  photo and caption sit in a row beneath it, left-aligned to match.
 -->
-<p class="section-label" style="text-align:center; margin:56px 0 20px;">Stills</p>
-<div class="cine-mobile-wrap">
-<div class="cine-carousel">
-  <div class="cine-track">
+<section class="cine-unit">
+  <div class="wrap cine-unit-grid">
 
-    <div class="cine-slide active" data-caption="Something something routine.">
-      <div class="cine-frame"><img src="https://picsum.photos/seed/the-routine-wide/1600/900" alt="The Routine still"></div>
+    <p class="section-label" style="grid-column:1/-1; text-align:center; margin-bottom:8px;">Stills</p>
+
+    <div class="cine-carousel">
+      <div class="cine-track">
+
+        <div class="cine-slide active" data-caption="Something something routine.">
+          <div class="cine-frame"><img src="https://picsum.photos/seed/the-routine-wide/1600/900" alt="The Routine still"></div>
+        </div>
+
+        <div class="cine-slide" data-caption="Something something Noon">
+          <div class="cine-frame"><img src="https://picsum.photos/seed/noon-wide/1600/900" alt="NOON still"></div>
+        </div>
+
+        <div class="cine-slide" data-caption="Something somethiing Daedalus">
+          <div class="cine-frame"><img src="https://picsum.photos/seed/daedalus-wide/1600/900" alt="Daedalus still"></div>
+        </div>
+
+        <div class="cine-slide" data-caption="Whatever comes next, etc lorem ipsum">
+          <div class="cine-frame"><img src="https://picsum.photos/seed/next-project-wide/1600/900" alt="Next project still"></div>
+        </div>
+
+      </div>
+
+      <button class="cine-arrow cine-arrow--prev" aria-label="Previous still">‹</button>
+      <button class="cine-arrow cine-arrow--next" aria-label="Next still">›</button>
+      <div class="cine-dots"></div>
     </div>
 
-    <div class="cine-slide" data-caption="Something something Noon">
-      <div class="cine-frame"><img src="https://picsum.photos/seed/noon-wide/1600/900" alt="NOON still"></div>
-    </div>
-
-    <div class="cine-slide" data-caption="Something somethiing Daedalus">
-      <div class="cine-frame"><img src="https://picsum.photos/seed/daedalus-wide/1600/900" alt="Daedalus still"></div>
-    </div>
-
-    <div class="cine-slide" data-caption="Whatever comes next, etc lorem ipsum">
-      <div class="cine-frame"><img src="https://picsum.photos/seed/next-project-wide/1600/900" alt="Next project still"></div>
-    </div>
-
-  </div>
-
-  <button class="cine-arrow cine-arrow--prev" aria-label="Previous still">‹</button>
-  <button class="cine-arrow cine-arrow--next" aria-label="Next still">›</button>
-  <div class="cine-dots"></div>
-</div>
-<p class="cine-caption-mobile">Something something soething routine.</p>
-</div>
-
-<!-- ============ EDITORIAL: Marlon ============
-  EDIT ME: swap the photo src whenever you're ready. The paragraph
-  text below updates automatically to match the active carousel
-  slide above — edit the captions on the slides themselves, not here.
--->
-<section class="editorial-split">
-  <div class="wrap editorial-split-inner">
     <div class="editorial-split-photo">
       <img src="https://picsum.photos/seed/marlon-editorial/800/1000" alt="Marlon Streb">
     </div>
     <div class="editorial-split-text">
       <h2>Marlon Streb</h2>
-      <p>soethign routine lorem</p>
+      <p>Something something routine.</p>
     </div>
+
   </div>
 </section>
 
