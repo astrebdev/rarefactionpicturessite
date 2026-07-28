@@ -56,8 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (f.poster) modalVideo.poster = f.poster;
       modalVideo.style.display = 'block';
       modalVideoPlaceholder.style.display = 'none';
+      modalVideo.play().catch(() => {}); // if the browser still blocks it, controls let them hit play manually
     } else {
       modalVideo.removeAttribute('src');
+      modalVideo.removeAttribute('poster');
       modalVideo.style.display = 'none';
       modalVideoPlaceholder.style.display = 'flex';
     }
