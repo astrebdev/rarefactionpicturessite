@@ -25,14 +25,36 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Rarefaction Pictures",
-  "url": "https://rarefactionpictures.com/",
-  "logo": "https://rarefactionpictures.com/images/logo-full.png",
-  "sameAs": [
-    "https://www.instagram.com/rarefactionpictures/",
-    "https://www.reddit.com/user/rarefactionpictures/",
-    "https://youtube.com/@rarefactionfilm"
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Rarefaction Pictures",
+      "url": "https://rarefactionpictures.com/",
+      "logo": "https://rarefactionpictures.com/images/logo-full.png",
+      "sameAs": [
+        "https://www.instagram.com/rarefactionpictures/",
+        "https://www.reddit.com/user/rarefactionpictures/",
+        "https://youtube.com/@rarefactionfilm"
+      ]
+    },
+    {
+      "@type": "Person",
+      "name": "Avery Streb",
+      "jobTitle": "Writer, Director, Cinematographer",
+      "worksFor": { "@type": "Organization", "name": "Rarefaction Pictures", "url": "https://rarefactionpictures.com/" }
+    },
+    {
+      "@type": "Person",
+      "name": "Marlon Streb",
+      "jobTitle": "VFX Artist, Cinematographer",
+      "worksFor": { "@type": "Organization", "name": "Rarefaction Pictures", "url": "https://rarefactionpictures.com/" }
+    },
+    {
+      "@type": "Person",
+      "name": "Thanachai Pumma",
+      "jobTitle": "Post-Production Generalist",
+      "worksFor": { "@type": "Organization", "name": "Rarefaction Pictures", "url": "https://rarefactionpictures.com/" }
+    }
   ]
 }
 </script>
@@ -55,7 +77,6 @@
       <a href="index.html" aria-current="page">Home</a>
       <a href="work.html">Our Work</a>
       <a href="cinematography.html">Cinematography</a>
-      <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
@@ -63,7 +84,7 @@
 
 <section class="hero">
   <div class="hero-photo">
-    <!-- EDIT ME: swap for the real team photo when you have it -->
+    <!-- EDIT ME: swap for the real group team photo when you have it -->
     <img class="hero-photo-img" src="https://picsum.photos/seed/rarefaction-team/1920/900?grayscale" alt="Avery Streb, Thanachai Pumma, and Marlon Streb">
     <img src="images/logo-full.png" alt="Rarefaction Pictures" class="hero-logo-overlay">
     <a href="contact.html" class="hero-wwu-btn">Work With Us</a>
@@ -71,75 +92,57 @@
   <h1 class="visually-hidden">Rarefaction Pictures</h1>
 </section>
 
-<!-- EDIT ME: reuses the same paragraph style as about.html — keep this
-     in sync if you rewrite the full About page copy. -->
-<section class="home-about">
-  <div class="wrap about-intro">
-    <p>
-      Our stuff is dope as shit. Hire us for various production needs.
+<!-- ============ ABOUT US (moved here from the old About page) ============
+  EDIT ME: this is the same content/markup pattern the About page used to
+  use. Avery and Marlon live here as the two principals; Thanachai has
+  her own "Meet Our Crew!" section further down.
+-->
+<div class="wrap about-intro">
+  <p>
+    Rarefaction Pictures has always been committed to achieving the highest-quality results on any project. We believe intentional choices are the name of the game, and our stories and visual language reflect that. We began in 2018, and since then, we've helped create all sorts of incredible worlds, whether it's the huge architecture of an impossible maze or the personal struggles of two brothers down on their luck.
+  </p>
+</div>
+
+<div class="wrap team">
+  <div class="team-member" style="--member-color:var(--blue)" data-member-theme="blue">
+    <div class="team-photo">
+      <img src="images/avery-photo.jpg" alt="Avery Streb">
+    </div>
+    <h3 class="team-name">Avery Streb</h3>
+    <p class="team-role">Writer, Director, Cinematographer</p>
+    <p class="team-bio">
+      Avery Streb has been creating visual media since 2013, whether its videogames or films. Since then, his writing mostly explores the high-concept and the surreal.
     </p>
-    <a href="about.html" class="work-category-link">Learn more about us →</a>
   </div>
-</section>
-
-<section class="latest-work">
-  <div class="wrap">
-    <p class="section-label">Latest Work</p>
-
-    <div class="work-category">
-      <div class="work-category-head">
-        <h2 class="work-category-title"><span class="accent-dot" style="background:var(--red)"></span>Short Films</h2>
-        <a href="work.html" class="work-category-link">View all →</a>
-      </div>
-      <div class="work-row">
-        <article class="work-card" data-film="the-routine" tabindex="0" role="button">
-          <div class="work-card-frame"><img src="https://picsum.photos/seed/the-routine/800/500" alt="The Routine still"></div>
-          <div class="work-card-body">
-            <h3 class="work-card-title">The Routine</h3>
-            <p class="work-card-meta">2026 · 6 min</p>
-          </div>
-        </article>
-        <article class="work-card" data-film="noon" tabindex="0" role="button">
-          <div class="work-card-frame"><img src="https://picsum.photos/seed/noon-film/800/500" alt="NOON still"></div>
-          <div class="work-card-body">
-            <h3 class="work-card-title">NOON</h3>
-            <p class="work-card-meta">2024 · 28 min</p>
-          </div>
-        </article>
-        <article class="work-card" data-film="daedalus" tabindex="0" role="button">
-          <div class="work-card-frame"><img src="https://picsum.photos/seed/daedalus-film/800/500" alt="Daedalus still"></div>
-          <div class="work-card-body">
-            <h3 class="work-card-title">Daedalus</h3>
-            <p class="work-card-meta">2024 · 13 min</p>
-          </div>
-        </article>
-      </div>
+  <div class="team-member" style="--member-color:var(--red)" data-member-theme="red">
+    <div class="team-photo">
+      <img src="images/marlon-photo.jpg" alt="Marlon Streb">
     </div>
+    <h3 class="team-name">Marlon Streb</h3>
+    <p class="team-role">VFX Artist, Cinematographer</p>
+    <p class="team-bio">
+      Marlon Streb has been a cinematography powerhouse ever since he became a filmmaker- which he achieved through constant study and practical experiments.
+    </p>
+  </div>
+</div>
 
-    <div class="work-category">
-      <div class="work-category-head">
-        <h2 class="work-category-title"><span class="accent-dot" style="background:var(--orange)"></span>Features</h2>
-        <a href="work.html" class="work-category-link">View all →</a>
+<!-- ============ MEET OUR CREW ============
+  EDIT ME: add more crew cards here as the team grows — same
+  .team-member markup pattern as above, just more of them.
+-->
+<section class="crew-section">
+  <p class="section-label" style="text-align:center;">Meet Our Crew!</p>
+  <div class="wrap team">
+    <div class="team-member" style="--member-color:var(--orange)" data-member-theme="orange">
+      <div class="team-photo">
+        <img src="https://picsum.photos/seed/thanachai-pumma/600/750" alt="Thanachai Pumma">
       </div>
-      <div class="work-row">
-        <div class="work-empty">
-          <p>First feature currently in development</p>
-        </div>
-      </div>
+      <h3 class="team-name">Thanachai Pumma</h3>
+      <p class="team-role">Post-Production Generalist</p>
+      <p class="team-bio">
+        Thanachai Pumma specializes in VFX simulations and high-quality material work, which is invaluable in offering set flexibility.
+      </p>
     </div>
-
-    <div class="work-category">
-      <div class="work-category-head">
-        <h2 class="work-category-title"><span class="accent-dot" style="background:var(--blue)"></span>Short-Form</h2>
-        <a href="work.html" class="work-category-link">View all →</a>
-      </div>
-      <div class="work-row">
-        <div class="work-empty">
-          <p>Coming soon</p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -157,23 +160,6 @@
   </div>
 </footer>
 
-<div class="film-modal-backdrop" id="filmModalBackdrop">
-  <div class="film-modal" role="dialog" aria-modal="true" aria-labelledby="filmModalTitle">
-    <button class="film-modal-close" id="filmModalClose" aria-label="Close">✕</button>
-    <div class="film-modal-scroll">
-      <p class="film-modal-eyebrow" id="filmModalMeta"></p>
-      <h2 class="film-modal-title" id="filmModalTitle"></h2>
-      <div class="film-modal-video">
-        <video class="film-modal-video-el" id="filmModalVideoEl" controls playsinline preload="auto"></video>
-        <div class="film-modal-video-placeholder" id="filmModalVideoPlaceholder">[ Trailer goes here ]</div>
-      </div>
-      <dl class="film-modal-facts" id="filmModalFacts"></dl>
-      <div class="film-modal-awards" id="filmModalAwards"></div>
-    </div>
-  </div>
-</div>
-
-<script src="films-data.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
