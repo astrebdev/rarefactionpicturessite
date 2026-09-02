@@ -844,8 +844,15 @@ img{ max-width:100%; display:block; }
   padding-top:60px;
   padding-bottom:80px;
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
   gap:32px;
+}
+
+.crew-section{ padding-top:20px; }
+.crew-section .team{
+  max-width:400px;
+  margin:0 auto;
+  padding-top:16px;
 }
 
 .team-member{ text-align:left; }
