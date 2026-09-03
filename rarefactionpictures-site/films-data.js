@@ -45,7 +45,7 @@ const FILMS = {
     starring: "Marlon Streb, Levi Hammond",
     licensing: "",
     awards: "Best VFX - SIMI Film Festival",
-    whereToWatch: "https://www.youtube.com/watch?v=RJgvc25_xDE",
+    whereToWatch: "<a href='https://www.youtube.com/watch?v=RJgvc25_xDE' target='_blank'>YOUTUBE</a>",
     trailerSrc: PLACEHOLDER_VIDEO,
     poster: ""
   },
