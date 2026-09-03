@@ -10,6 +10,7 @@
   --ink:       #ece7dc;
   --muted:     #8d867d;
   --line:      rgba(236,231,220,0.12);
+  --white:     #ffffff;
 
   --blue:      #6fa3c7;   /* Avery Streb */
   --orange:    #e8a857;   /* Thanachai Pumma */
@@ -118,10 +119,10 @@ img{ max-width:100%; display:block; }
 .section-label{
   font-family:var(--font-display);
   font-weight:800;
-  font-size:28px;
+  font-size:50px;
   letter-spacing:0.14em;
   text-transform:uppercase;
-  color:var(--muted);
+  color:var(--white);
   margin-bottom:28px;
 }
 
