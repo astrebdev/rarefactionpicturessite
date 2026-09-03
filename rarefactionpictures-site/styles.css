@@ -260,12 +260,23 @@ body.has-hero{ padding-top:0; }
 
 
 /* Texture runner: horizontal tiled strip, used on every page */
-.texture-runner{
-  width:100%;
-  height:70px;
+/* Vertical texture strips down page sides. Change --texture-side-width
+   to control how far they extend in from the edge. */
+:root{ --texture-side-width: 90px; }
+.texture-side{
+  position:absolute;
+  top:0; bottom:0;
+  width:var(--texture-side-width);
   background-image:url('images/texture-newspaper.jpg');
-  background-repeat:repeat;
-  background-size:280px auto;
+  background-repeat:repeat-y;
+  background-size:var(--texture-side-width) auto;
+  z-index:40;
+  pointer-events:none;
+}
+.texture-side--left{ left:0; }
+.texture-side--right{ right:0; }
+@media (max-width:800px){
+  .texture-side{ display:none; }
 }
 
 .hero-logo-overlay{
