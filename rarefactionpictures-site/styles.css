@@ -8,8 +8,9 @@
   --paper-dim: #b7ae9c;
   --paper-dark:#211c19;
   --ink:       #ece7dc;
-  --muted:     #8d867d;
+  --muted:     #cccccc;
   --line:      rgba(236,231,220,0.12);
+  --white:     #ffffff;
 
   --blue:      #6fa3c7;   /* Avery Streb */
   --orange:    #e8a857;   /* Thanachai Pumma */
@@ -47,13 +48,13 @@ html[data-theme="red"]{
 
 /* EDIT ME: add your licensed Gotham files to a /fonts folder, then
    uncomment this block. Gotham is used first in --font-display above. */
-/*
+
 @font-face{
   font-family:'Gotham';
   src:url('fonts/Gotham-Bold.woff2') format('woff2');
   font-weight:700;
 }
-*/
+
 
 html{ scroll-behavior:smooth; overflow-y:scroll; }
 
@@ -118,11 +119,11 @@ img{ max-width:100%; display:block; }
 .section-label{
   font-family:var(--font-display);
   font-weight:800;
-  font-size:13px;
+  font-size:72px;
   letter-spacing:0.14em;
   text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:28px;
+  color:var(--white);
+  margin-bottom:0px;
 }
 
 /* =========================================================
@@ -244,7 +245,7 @@ body.has-hero{ padding-top:0; }
 .hero-photo{
   position:relative;
   width:100%;
-  height:min(62vh, 560px);
+  height:min(62vh, 960px);
   min-height:380px;
   overflow:hidden;
 }
@@ -256,23 +257,49 @@ body.has-hero{ padding-top:0; }
   z-index:1;
 }
 
-.hero-side{
-  position:absolute;
-  top:0; bottom:0;
-  width:14%;
-  min-width:80px;
-  background-image:url('images/texture-newspaper.jpg');
-  background-size:cover;
-  background-position:center;
-  z-index:2;
+
+
+/* Hero Sides */
+.hero-side { 
+  position: absolute; 
+  top: 0; 
+  bottom: 0; 
+  width: 14%; 
+  min-width: 80px; 
+  z-index: 2; 
+} 
+
+/* Create a shared styling rule for the inner shapes */
+.hero-side::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('images/texture-newspaper.jpg'); 
+  background-size: cover; 
+  background-position: center;
+  z-index: -1; /* Puts the texture inside the shadow container */
 }
-.hero-side--left{
-  left:0;
-  clip-path:polygon(0 0, 100% 0, 60% 100%, 0 100%);
+
+/* LEFT SIDE */
+.hero-side--left { 
+  left: 0; 
+  /* The filter goes on the outer element so it doesn't get clipped! */
+  filter: drop-shadow(15px 0px 15px rgba(0, 0, 0, 0.75));
+} 
+.hero-side--left::before {
+  /* The clip-path goes safely on the pseudo-element */
+  clip-path: polygon(0 0, 100% 0, 60% 100%, 0 100%); 
 }
-.hero-side--right{
-  right:0;
-  clip-path:polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+
+/* RIGHT SIDE */
+.hero-side--right { 
+  right: 0; 
+  /* The filter goes on the outer element */
+  filter: drop-shadow(-15px 0px 15px rgba(0, 0, 0, 0.75));
+} 
+.hero-side--right::before {
+  /* The clip-path goes safely on the pseudo-element */
+  clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%); 
 }
 
 .hero-logo-overlay{
@@ -286,7 +313,7 @@ body.has-hero{ padding-top:0; }
 
 .hero-text-block{
   position:absolute;
-  bottom:32px;
+  bottom:96px;
   left:max(28px, calc((100% - 1120px) / 2 + 32px));
   z-index:3;
   text-align:left;
@@ -324,7 +351,7 @@ body.has-hero{ padding-top:0; }
 .hero-photo::after{
   content:"";
   position:absolute; left:0; right:0; bottom:0;
-  height:5px;
+  height:32px;
   background:linear-gradient(90deg,var(--blue) 0 33.3%,var(--orange) 33.3% 66.6%,var(--red) 66.6% 100%);
   z-index:2;
 }
@@ -895,8 +922,8 @@ body.has-hero{ padding-top:0; }
 .promo-tiles{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:2px;
-  margin-top:-48px;
+  gap:32px;
+  margin-top:-64px;
   position:relative;
   z-index:5;
   padding:0 32px;
@@ -989,8 +1016,8 @@ body.has-hero{ padding-top:0; }
 }
 
 .about-intro{
-  padding-top:60px;
-  padding-bottom:20px;
+  padding-top:5px;
+  padding-bottom:0px;
   max-width:680px;
   margin:0 auto;
   text-align:center;
