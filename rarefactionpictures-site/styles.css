@@ -245,7 +245,7 @@ body.has-hero{ padding-top:0; }
 .hero-photo{
   position:relative;
   width:100%;
-  height:min(62vh, 560px);
+  height:min(62vh, 960px);
   min-height:380px;
   overflow:hidden;
 }
@@ -896,7 +896,7 @@ body.has-hero{ padding-top:0; }
 .promo-tiles{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:2px;
+  gap:32px;
   margin-top:-48px;
   position:relative;
   z-index:5;
