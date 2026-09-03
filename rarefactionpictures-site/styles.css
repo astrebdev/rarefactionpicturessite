@@ -8,7 +8,7 @@
   --paper-dim: #b7ae9c;
   --paper-dark:#211c19;
   --ink:       #ece7dc;
-  --muted:     #8d867d;
+  --muted:     #cccccc;
   --line:      rgba(236,231,220,0.12);
   --white:     #ffffff;
 
@@ -990,8 +990,8 @@ body.has-hero{ padding-top:0; }
 }
 
 .about-intro{
-  padding-top:20px;
-  padding-bottom:20px;
+  padding-top:5px;
+  padding-bottom:0px;
   max-width:680px;
   margin:0 auto;
   text-align:center;
