@@ -257,25 +257,46 @@ body.has-hero{ padding-top:0; }
   z-index:1;
 }
 
-.hero-side{
-  position:absolute;
-  top:0; bottom:0;
-  width:14%;
-  min-width:80px;
-  background-image:url('images/texture-newspaper.jpg');
-  background-size:cover;
-  background-position:center;
-  z-index:2;
+.hero-side { 
+  position: absolute; 
+  top: 0; 
+  bottom: 0; 
+  width: 14%; 
+  min-width: 80px; 
+  z-index: 2; /* Adjust this higher than your center content if needed */
+} 
+
+/* Create a shared styling rule for the inner shapes */
+.hero-side::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('images/texture-newspaper.jpg'); 
+  background-size: cover; 
+  background-position: center;
+  z-index: -1; /* Puts the texture inside the shadow container */
 }
-.hero-side--left{
-  left:0;
-  clip-path:polygon(0 0, 100% 0, 60% 100%, 0 100%);
+
+/* LEFT SIDE */
+.hero-side--left { 
+  left: 0; 
+  /* The filter goes on the outer element so it doesn't get clipped! */
   filter: drop-shadow(15px 5px 10px rgba(0, 0, 0, 0.5));
+} 
+.hero-side--left::before {
+  /* The clip-path goes safely on the pseudo-element */
+  clip-path: polygon(0 0, 100% 0, 60% 100%, 0 100%); 
 }
-.hero-side--right{
-  right:0;
-  clip-path:polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+
+/* RIGHT SIDE */
+.hero-side--right { 
+  right: 0; 
+  /* The filter goes on the outer element */
   filter: drop-shadow(-15px 5px 10px rgba(0, 0, 0, 0.5));
+} 
+.hero-side--right::before {
+  /* The clip-path goes safely on the pseudo-element */
+  clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%); 
 }
 
 .hero-logo-overlay{
