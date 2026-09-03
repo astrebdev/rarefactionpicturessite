@@ -262,7 +262,7 @@ body.has-hero{ padding-top:0; }
 /* Texture runner: horizontal tiled strip, used on every page */
 /* Vertical texture strips down page sides. Change --texture-side-width
    to control how far they extend in from the edge. */
-:root{ --texture-side-width: 180px; }
+:root{ --texture-side-width: 90px; }
 .texture-side{
   position:absolute;
   top:0; bottom:0;
@@ -1269,4 +1269,9 @@ body.has-hero{ padding-top:0; }
 @media (max-width:600px){
   .contact-form{ padding:24px; }
   .contact-form-row{ grid-template-columns:1fr; }
+}
+.contact-form-status{
+  margin-top:14px;
+  font-size:14px;
+  color:var(--orange);
 }
