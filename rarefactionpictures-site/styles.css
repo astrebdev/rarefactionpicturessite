@@ -270,10 +270,12 @@ body.has-hero{ padding-top:0; }
 .hero-side--left{
   left:0;
   clip-path:polygon(0 0, 100% 0, 60% 100%, 0 100%);
+  filter: drop-shadow(15px 5px 10px rgba(0, 0, 0, 0.5));
 }
 .hero-side--right{
   right:0;
   clip-path:polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+  filter: drop-shadow(-15px 5px 10px rgba(0, 0, 0, 0.5));
 }
 
 .hero-logo-overlay{
