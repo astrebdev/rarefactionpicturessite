@@ -349,14 +349,14 @@ body.has-hero{ padding-top:0; }
   .hero-side{ display:none; }
   .hero-text-block{
     position:static;
-    padding:20px 16px 0;
+    padding:0;
     text-align:center;
   }
-  .hero-headline{ text-shadow:none; color:var(--ink); }
+  .hero-headline{ text-shadow:none; color:var(--ink); padding:16px 16px 0; }
   .hero-wwu-btn{
     display:block;
-    width:calc(100% - 32px);
-    margin:0 auto;
+    width:100%;
+    margin:0;
     text-align:center;
     font-size:20px;
     padding:22px 20px;
@@ -946,7 +946,7 @@ body.has-hero{ padding-top:0; }
   text-shadow:0 1px 3px rgba(0,0,0,0.8);
 }
 @media (max-width:800px){
-  .promo-tiles{ grid-template-columns:1fr; margin-top:0; padding:0; }
+  .promo-tiles{ grid-template-columns:1fr; margin-top:16px; padding:0; }
 }
 
 /* =========================================================
