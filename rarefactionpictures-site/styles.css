@@ -259,47 +259,24 @@ body.has-hero{ padding-top:0; }
 
 
 
-/* Hero Sides */
-.hero-side { 
-  position: absolute; 
-  top: 0; 
-  bottom: 0; 
-  width: 14%; 
-  min-width: 80px; 
-  z-index: 0; 
-} 
-
-/* Create a shared styling rule for the inner shapes */
-.hero-side::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('images/texture-newspaper.jpg'); 
-  background-size: cover; 
-  background-position: center;
-  z-index: -1; /* Puts the texture inside the shadow container */
+/* Texture runner: horizontal tiled strip, used on every page */
+/* Vertical texture strips down page sides. Change --texture-side-width
+   to control how far they extend in from the edge. */
+:root{ --texture-side-width: 90px; }
+.texture-side{
+  position:absolute;
+  top:0; bottom:0;
+  width:var(--texture-side-width);
+  background-image:url('images/texture-newspaper.jpg');
+  background-repeat:repeat-y;
+  background-size:900px auto;
+  z-index:-1;
+  pointer-events:none;
 }
-
-/* LEFT SIDE */
-.hero-side--left { 
-  left: 0; 
-  /* The filter goes on the outer element so it doesn't get clipped! */
-  filter: drop-shadow(15px 0px 15px rgba(0, 0, 0, 0.75));
-} 
-.hero-side--left::before {
-  /* The clip-path goes safely on the pseudo-element */
-  clip-path: polygon(0 0, 100% 0, 60% 100%, 0 100%); 
-}
-
-/* RIGHT SIDE */
-.hero-side--right { 
-  right: 0; 
-  /* The filter goes on the outer element */
-  filter: drop-shadow(-15px 0px 15px rgba(0, 0, 0, 0.75));
-} 
-.hero-side--right::before {
-  /* The clip-path goes safely on the pseudo-element */
-  clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%); 
+.texture-side--left{ left:0; }
+.texture-side--right{ right:0; }
+@media (max-width:800px){
+  .texture-side{ display:none; }
 }
 
 .hero-logo-overlay{
@@ -1090,7 +1067,7 @@ body.has-hero{ padding-top:0; }
    ========================================================= */
 .contact-page{
   padding-top:80px;
-  padding-bottom:100px;
+  padding-bottom:40px;
   text-align:center;
 }
 .contact-email{
@@ -1213,4 +1190,88 @@ body.has-hero{ padding-top:0; }
 
 @media (prefers-reduced-motion:reduce){
   *{ transition:none !important; scroll-behavior:auto !important; }
+}
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
+.contact-form-wrap{
+  max-width:640px;
+  padding-bottom:90px;
+}
+.contact-form{
+  background:var(--bg-alt);
+  border:1px solid var(--line);
+  padding:36px;
+  text-align:left;
+}
+.contact-form-title{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:24px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.contact-form-sub{
+  color:var(--muted);
+  font-size:15px;
+  margin-bottom:24px;
+}
+.contact-form-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:16px;
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  background:var(--bg);
+  border:1px solid var(--line);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:15px;
+  padding:14px 16px;
+}
+.contact-form textarea{
+  margin-bottom:20px;
+  resize:vertical;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{ color:var(--muted); }
+
+.contact-form-check{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:24px;
+}
+.contact-form-check input{ width:auto; margin-top:3px; }
+.contact-form-check a{ color:var(--ink); text-decoration:underline; }
+
+.contact-form-submit{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  background:var(--orange);
+  color:#fff;
+  border:none;
+  padding:16px 32px;
+  cursor:pointer;
+  transition:background .2s ease;
+}
+.contact-form-submit:hover{ background:var(--ink); color:var(--bg); }
+
+@media (max-width:600px){
+  .contact-form{ padding:24px; }
+  .contact-form-row{ grid-template-columns:1fr; }
+}
+.contact-form-status{
+  margin-top:14px;
+  font-size:14px;
+  color:var(--orange);
 }

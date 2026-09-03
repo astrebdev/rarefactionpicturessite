@@ -24,6 +24,29 @@ document.addEventListener('DOMContentLoaded', () => {
     updateHeader();
   }
 
+  // ---------- Contact form: submit via fetch, no redirect ----------
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const status = document.getElementById('contactFormStatus');
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      }).then(res => {
+        if (res.ok) {
+          status.textContent = 'Message sent — thanks!';
+          contactForm.reset();
+        } else {
+          status.textContent = 'Something went wrong. Try again or email us directly.';
+        }
+      }).catch(() => {
+        status.textContent = 'Something went wrong. Try again or email us directly.';
+      });
+    });
+  }
+
   // ---------- Footer year ----------
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
