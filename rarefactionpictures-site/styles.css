@@ -15,7 +15,8 @@
   --orange:    #e8a857;   /* Thanachai Pumma */
   --red:       #e15c56;   /* Marlon Streb */
 
-  --font-display: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Gotham', 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+  --header-height: 84px;
   --font-body:    'Newsreader', Georgia, serif;
   --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
 }
@@ -43,6 +44,16 @@ html[data-theme="red"]{
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
+
+/* EDIT ME: add your licensed Gotham files to a /fonts folder, then
+   uncomment this block. Gotham is used first in --font-display above. */
+/*
+@font-face{
+  font-family:'Gotham';
+  src:url('fonts/Gotham-Bold.woff2') format('woff2');
+  font-weight:700;
+}
+*/
 
 html{ scroll-behavior:smooth; overflow-y:scroll; }
 
@@ -118,11 +129,19 @@ img{ max-width:100%; display:block; }
    HEADER / NAV
    ========================================================= */
 .site-header{
+  background:transparent;
+  box-shadow:none;
+  position:fixed;
+  top:0; left:0; right:0;
+  z-index:200;
+  transition:background-color .4s ease, box-shadow .4s ease;
+}
+.site-header.scrolled{
   background:#0c0b0c;
   box-shadow:0 6px 28px rgba(0,0,0,0.55);
-  position:relative;
-  z-index:50;
 }
+body{ padding-top:var(--header-height); }
+body.has-hero{ padding-top:0; }
 
 .site-header-inner{
   display:flex;
@@ -225,8 +244,8 @@ img{ max-width:100%; display:block; }
 .hero-photo{
   position:relative;
   width:100%;
-  height:min(72vh, 680px);
-  min-height:420px;
+  height:min(62vh, 560px);
+  min-height:380px;
   overflow:hidden;
 }
 
@@ -235,6 +254,25 @@ img{ max-width:100%; display:block; }
   width:100%; height:100%;
   object-fit:cover;
   z-index:1;
+}
+
+.hero-side{
+  position:absolute;
+  top:0; bottom:0;
+  width:14%;
+  min-width:80px;
+  background-image:url('images/texture-newspaper.jpg');
+  background-size:cover;
+  background-position:center;
+  z-index:2;
+}
+.hero-side--left{
+  left:0;
+  clip-path:polygon(0 0, 100% 0, 60% 100%, 0 100%);
+}
+.hero-side--right{
+  right:0;
+  clip-path:polygon(40% 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .hero-logo-overlay{
@@ -246,11 +284,24 @@ img{ max-width:100%; display:block; }
   z-index:3;
 }
 
-.hero-wwu-btn{
+.hero-text-block{
   position:absolute;
-  bottom:28px;
+  bottom:32px;
   left:max(28px, calc((100% - 1120px) / 2 + 32px));
   z-index:3;
+  text-align:left;
+}
+
+.hero-headline{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(22px, 3vw, 32px);
+  color:#ffffff;
+  text-shadow:0 2px 6px rgba(0,0,0,0.75);
+  margin-bottom:18px;
+}
+
+.hero-wwu-btn{
   display:inline-block;
   font-family:var(--font-display);
   font-weight:700;
@@ -291,10 +342,17 @@ img{ max-width:100%; display:block; }
     aspect-ratio:16/9;
   }
   .hero-photo::after{ display:none; }
-  .hero-wwu-btn{
+  .hero-side{ display:none; }
+  .hero-text-block{
     position:static;
+    padding:20px 16px 0;
+    text-align:center;
+  }
+  .hero-headline{ text-shadow:none; color:var(--ink); }
+  .hero-wwu-btn{
     display:block;
-    width:100%;
+    width:calc(100% - 32px);
+    margin:0 auto;
     text-align:center;
     font-size:20px;
     padding:22px 20px;
@@ -831,6 +889,105 @@ img{ max-width:100%; display:block; }
 /* =========================================================
    ABOUT PAGE
    ========================================================= */
+/* =========================================================
+   PROMO TILES (Our Work / Cinematography)
+   ========================================================= */
+.promo-tiles{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2px;
+  margin-top:-48px;
+  position:relative;
+  z-index:5;
+  padding:0 32px;
+  max-width:1120px;
+  margin-left:auto;
+  margin-right:auto;
+}
+.promo-tile{
+  position:relative;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  box-shadow:0 12px 30px rgba(0,0,0,0.5);
+}
+.promo-tile img{
+  position:absolute; inset:0;
+  width:100%; height:100%;
+  object-fit:cover;
+}
+.promo-tile-inner{
+  position:relative;
+  z-index:2;
+  padding:24px;
+}
+.promo-tile-title{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:clamp(18px,2.4vw,26px);
+  color:#ffffff;
+  text-shadow:0 2px 6px rgba(0,0,0,0.75);
+  margin-bottom:14px;
+}
+.promo-tile-btn{
+  display:inline-block;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  padding:12px 22px;
+  color:#ffffff;
+  text-shadow:0 1px 3px rgba(0,0,0,0.8);
+}
+@media (max-width:800px){
+  .promo-tiles{ grid-template-columns:1fr; margin-top:0; padding:0; }
+}
+
+/* =========================================================
+   YOUTUBE BANNER
+   ========================================================= */
+.youtube-banner{
+  background:var(--bg-alt);
+  padding:56px 0;
+}
+.youtube-banner-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:32px;
+  max-width:700px;
+  margin:0 auto;
+}
+.youtube-channel{
+  text-align:center;
+}
+.youtube-icon{
+  width:56px; height:56px;
+  margin:0 auto 14px;
+  border-radius:50%;
+  background:var(--ink);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.youtube-icon svg{ width:22px; height:22px; }
+.youtube-channel-name{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:16px;
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+}
+.youtube-channel-sub{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:6px;
+}
+@media (max-width:600px){
+  .youtube-banner-inner{ grid-template-columns:1fr; gap:32px; }
+}
+
 .about-intro{
   padding-top:60px;
   padding-bottom:20px;
@@ -941,15 +1098,44 @@ img{ max-width:100%; display:block; }
    FOOTER
    ========================================================= */
 .site-footer{
-  padding:32px;
+  padding:48px 32px 32px;
   border-top:1px solid var(--line);
 }
+.footer-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:24px;
+  max-width:1120px;
+  margin:0 auto 36px;
+}
+.footer-brand-mark{ height:26px; width:auto; margin-bottom:10px; }
+.footer-tagline{
+  font-size:14px;
+  color:var(--muted);
+  max-width:280px;
+}
+.footer-socials{ display:flex; gap:18px; }
+.footer-socials a{
+  color:var(--muted);
+  font-family:var(--font-mono);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+}
+.footer-socials a:hover{ color:var(--ink); }
+
 .footer-inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
   flex-wrap:wrap;
   gap:16px;
+  max-width:1120px;
+  margin:0 auto;
+  padding-top:20px;
+  border-top:1px solid var(--line);
 }
 .footer-copy{
   font-family:var(--font-mono);

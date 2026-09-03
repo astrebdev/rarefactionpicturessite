@@ -16,6 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---------- Header fades to solid on scroll ----------
+  const header = document.querySelector('.site-header');
+  if (header) {
+    const updateHeader = () => header.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', updateHeader);
+    updateHeader();
+  }
+
   // ---------- Footer year ----------
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
