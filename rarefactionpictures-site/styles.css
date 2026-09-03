@@ -119,11 +119,11 @@ img{ max-width:100%; display:block; }
 .section-label{
   font-family:var(--font-display);
   font-weight:800;
-  font-size:65px;
+  font-size:72px;
   letter-spacing:0.14em;
   text-transform:uppercase;
   color:var(--white);
-  margin-bottom:28px;
+  margin-bottom:0px;
 }
 
 /* =========================================================
