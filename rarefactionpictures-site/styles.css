@@ -48,13 +48,13 @@ html[data-theme="red"]{
 
 /* EDIT ME: add your licensed Gotham files to a /fonts folder, then
    uncomment this block. Gotham is used first in --font-display above. */
-/*
+
 @font-face{
   font-family:'Gotham';
   src:url('fonts/Gotham-Bold.woff2') format('woff2');
   font-weight:700;
 }
-*/
+
 
 html{ scroll-behavior:smooth; overflow-y:scroll; }
 
