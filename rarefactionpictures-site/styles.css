@@ -119,7 +119,7 @@ img{ max-width:100%; display:block; }
 .section-label{
   font-family:var(--font-display);
   font-weight:800;
-  font-size:50px;
+  font-size:65px;
   letter-spacing:0.14em;
   text-transform:uppercase;
   color:var(--white);
@@ -990,7 +990,7 @@ body.has-hero{ padding-top:0; }
 }
 
 .about-intro{
-  padding-top:60px;
+  padding-top:20px;
   padding-bottom:20px;
   max-width:680px;
   margin:0 auto;
