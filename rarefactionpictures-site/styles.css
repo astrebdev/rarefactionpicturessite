@@ -313,7 +313,7 @@ body.has-hero{ padding-top:0; }
 
 .hero-text-block{
   position:absolute;
-  bottom:32px;
+  bottom:96px;
   left:max(28px, calc((100% - 1120px) / 2 + 32px));
   z-index:3;
   text-align:left;
@@ -351,7 +351,7 @@ body.has-hero{ padding-top:0; }
 .hero-photo::after{
   content:"";
   position:absolute; left:0; right:0; bottom:0;
-  height:5px;
+  height:32px;
   background:linear-gradient(90deg,var(--blue) 0 33.3%,var(--orange) 33.3% 66.6%,var(--red) 66.6% 100%);
   z-index:2;
 }
@@ -923,7 +923,7 @@ body.has-hero{ padding-top:0; }
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:32px;
-  margin-top:32px;
+  margin-top:-64px;
   position:relative;
   z-index:5;
   padding:0 32px;
