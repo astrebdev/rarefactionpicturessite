@@ -269,8 +269,8 @@ body.has-hero{ padding-top:0; }
   width:var(--texture-side-width);
   background-image:url('images/texture-newspaper.jpg');
   background-repeat:repeat-y;
-  background-size:var(--texture-side-width) auto;
-  z-index:40;
+  background-size:900px auto;
+  z-index:-1;
   pointer-events:none;
 }
 .texture-side--left{ left:0; }
