@@ -17,7 +17,7 @@
   --red:       #e15c56;   /* Marlon Streb */
 
   --font-display: 'Gotham', 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-  --header-height: 84px;
+  --header-height: 108px;
   --font-body:    'Newsreader', Georgia, serif;
   --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
 }
@@ -124,6 +124,10 @@ img{ max-width:100%; display:block; }
   text-transform:uppercase;
   color:var(--white);
   margin-bottom:0px;
+  line-height:1.1;
+}
+@media (max-width:800px){
+  .section-label{ font-size:clamp(20px, 8vw, 48px); letter-spacing:0.04em; }
 }
 
 /* =========================================================
@@ -1181,7 +1185,7 @@ body.has-hero{ padding-top:0; }
   .nav-toggle{
     display:block;
     background:none; border:none;
-    color:var(--ink); font-size:22px;
+    color:var(--white); font-size:22px;
     cursor:pointer; z-index:101;
   }
   .work-row{ grid-template-columns:1fr; }
