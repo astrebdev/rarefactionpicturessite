@@ -1290,3 +1290,5 @@ body.has-hero{ padding-top:0; }
   .logo-mark{ margin:0 auto; }
   .nav-toggle{ position:absolute; right:32px; top:50%; transform:translateY(-50%); }
 }
+.film-modal-facts dd a{ color:var(--orange); text-decoration:underline; }
+.film-modal-facts dd a:hover{ color:var(--ink); }
