@@ -17,7 +17,7 @@
   --red:       #e15c56;   /* Marlon Streb */
 
   --font-display: 'Gotham', 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
-  --header-height: 84px;
+  --header-height: 108px;
   --font-body:    'Newsreader', Georgia, serif;
   --font-mono:    'IBM Plex Mono', 'Courier New', monospace;
 }
@@ -124,6 +124,10 @@ img{ max-width:100%; display:block; }
   text-transform:uppercase;
   color:var(--white);
   margin-bottom:0px;
+  line-height:1.1;
+}
+@media (max-width:800px){
+  .section-label{ font-size:clamp(20px, 8vw, 48px); letter-spacing:0.04em; }
 }
 
 /* =========================================================
@@ -168,7 +172,7 @@ body.has-hero{ padding-top:0; }
 .tri-mark{ width:26px; height:auto; flex-shrink:0; }
 
 .logo-header-mark{
-  height:30px;
+  height:60px;
   width:auto;
   flex-shrink:0;
 }
@@ -178,10 +182,10 @@ body.has-hero{ padding-top:0; }
 .site-nav a{
   font-family:var(--font-display);
   font-weight:600;
-  font-size:13px;
+  font-size:18px;
   letter-spacing:0.08em;
   text-transform:uppercase;
-  color:var(--muted);
+  color:var(--white);
   transition:color .2s ease;
   position:relative;
   padding-bottom:4px;
@@ -1181,7 +1185,7 @@ body.has-hero{ padding-top:0; }
   .nav-toggle{
     display:block;
     background:none; border:none;
-    color:var(--ink); font-size:22px;
+    color:var(--white); font-size:22px;
     cursor:pointer; z-index:101;
   }
   .work-row{ grid-template-columns:1fr; }

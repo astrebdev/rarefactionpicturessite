@@ -45,7 +45,7 @@ const FILMS = {
     starring: "Marlon Streb, Levi Hammond",
     licensing: "",
     awards: "Best VFX - SIMI Film Festival",
-    whereToWatch: "",
+    whereToWatch: "Rarefaction Pictures Youtube",
     trailerSrc: PLACEHOLDER_VIDEO,
     poster: ""
   },
@@ -61,7 +61,7 @@ const FILMS = {
     starring: "Hunter Uliasz, Morgan Jamison",
     licensing: "",
     awards: [],
-    whereToWatch: "",
+    whereToWatch: "Rarefaction Pictures Youtube",
     trailerSrc: PLACEHOLDER_VIDEO,
     poster: ""
   }
