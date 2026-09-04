@@ -12,6 +12,14 @@
 // CC BY 3.0, Blender Foundation) just so the modal isn't empty.
 // Swap it for your real trailer file once you have one, e.g.
 // "videos/the-routine-trailer.mp4"
+//
+// whereToWatch accepts:
+//   - a plain string:        whereToWatch: "Rarefaction Pictures YouTube"
+//   - a link:                whereToWatch: { label: "YouTube", url: "https://..." }
+//   - multiple entries:      whereToWatch: [
+//                              { label: "YouTube", url: "https://..." },
+//                              "Coming soon to Vimeo"
+//                            ]
 // ================================================================
 
 const PLACEHOLDER_VIDEO = "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4";
@@ -45,7 +53,7 @@ const FILMS = {
     starring: "Marlon Streb, Levi Hammond",
     licensing: "",
     awards: "Best VFX - SIMI Film Festival",
-    whereToWatch: "Rarefaction Pictures Youtube",
+    whereToWatch: { label: "YouTube", url: "https://www.youtube.com/watch?v=RJgvc25_xDE" },
     trailerSrc: PLACEHOLDER_VIDEO,
     poster: ""
   },
@@ -61,7 +69,7 @@ const FILMS = {
     starring: "Hunter Uliasz, Morgan Jamison",
     licensing: "",
     awards: [],
-    whereToWatch: "Rarefaction Pictures Youtube",
+    whereToWatch: { label: "YouTube", url: "https://youtu.be/XDClh-3_EzQ?si=yAtp6QfOc6jK_4Vo" },
     trailerSrc: PLACEHOLDER_VIDEO,
     poster: ""
   }

@@ -47,6 +47,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---------- Movie structured data, built from films-data.js ----------
+  if (typeof FILMS !== 'undefined') {
+    const splitNames = (str) => (str || '')
+      .split(',').map(s => s.trim()).filter(Boolean)
+      .map(name => ({ "@type": "Person", "name": name }));
+
+    const graph = Object.values(FILMS).map(f => {
+      const directors = splitNames(f.director);
+      const actors = splitNames(Array.isArray(f.starring) ? f.starring.join(', ') : f.starring);
+      const awardsList = Array.isArray(f.awards) ? f.awards : (f.awards ? [f.awards] : []);
+
+      const movie = {
+        "@type": "Movie",
+        "name": f.title,
+        "datePublished": f.year,
+        "productionCompany": { "@type": "Organization", "name": "Rarefaction Pictures" }
+      };
+      if (directors.length === 1) movie.director = directors[0];
+      else if (directors.length > 1) movie.director = directors;
+      if (actors.length) movie.actor = actors;
+      if (awardsList.length === 1) movie.award = awardsList[0];
+      else if (awardsList.length > 1) movie.award = awardsList;
+      return movie;
+    });
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify({ "@context": "https://schema.org", "@graph": graph });
+    document.head.appendChild(script);
+  }
+
   // ---------- Footer year ----------
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -101,9 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ['Director', f.director],
       ['Producer', f.producer],
       ['Cinematographer', f.dp],
-      ['Starring', Array.isArray(f.starring) ? f.starring.join(', ') : f.starring],
-      ['Licensing', f.licensing],
-      ['Where to Watch', f.whereToWatch]
+      ['Starring', Array.isArray(f.starring) ? f.starring.join(', ') : f.starring]
     ];
     factRows.forEach(([label, value]) => {
       if (value) {
@@ -115,6 +144,43 @@ document.addEventListener('DOMContentLoaded', () => {
         modalFacts.appendChild(dd);
       }
     });
+
+    // Licensing
+    if (f.licensing) {
+      const dt = document.createElement('dt');
+      dt.textContent = 'Licensing';
+      const dd = document.createElement('dd');
+      dd.textContent = f.licensing;
+      modalFacts.appendChild(dt);
+      modalFacts.appendChild(dd);
+    }
+
+    // Where to Watch — accepts a plain string, an array of strings, or an
+    // array of { label, url } objects (url is optional, makes it a link).
+    // A single { label, url } object also works.
+    if (f.whereToWatch) {
+      const raw = Array.isArray(f.whereToWatch) ? f.whereToWatch : [f.whereToWatch];
+      const dt = document.createElement('dt');
+      dt.textContent = 'Where to Watch';
+      const dd = document.createElement('dd');
+      raw.forEach((item, i) => {
+        if (i > 0) dd.appendChild(document.createTextNode(', '));
+        if (typeof item === 'string') {
+          dd.appendChild(document.createTextNode(item));
+        } else if (item && item.url) {
+          const a = document.createElement('a');
+          a.href = item.url;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = item.label || item.url;
+          dd.appendChild(a);
+        } else if (item && item.label) {
+          dd.appendChild(document.createTextNode(item.label));
+        }
+      });
+      modalFacts.appendChild(dt);
+      modalFacts.appendChild(dd);
+    }
 
     // Awards — accepts either a string or an array in films-data.js
     modalAwards.innerHTML = '';
