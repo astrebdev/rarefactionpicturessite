@@ -69,7 +69,7 @@ const FILMS = {
     starring: "Hunter Uliasz, Morgan Jamison",
     licensing: "",
     awards: [],
-    whereToWatch: "",
+    whereToWatch: { label: "YouTube", url: "https://youtu.be/XDClh-3_EzQ?si=yAtp6QfOc6jK_4Vo" },
     trailerSrc: PLACEHOLDER_VIDEO,
     poster: ""
   }
