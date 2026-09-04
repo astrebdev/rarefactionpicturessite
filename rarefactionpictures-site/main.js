@@ -101,9 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ['Director', f.director],
       ['Producer', f.producer],
       ['Cinematographer', f.dp],
-      ['Starring', Array.isArray(f.starring) ? f.starring.join(', ') : f.starring],
-      ['Licensing', f.licensing],
-      ['Where to Watch', f.whereToWatch]
+      ['Starring', Array.isArray(f.starring) ? f.starring.join(', ') : f.starring]
     ];
     factRows.forEach(([label, value]) => {
       if (value) {
@@ -115,6 +113,43 @@ document.addEventListener('DOMContentLoaded', () => {
         modalFacts.appendChild(dd);
       }
     });
+
+    // Licensing
+    if (f.licensing) {
+      const dt = document.createElement('dt');
+      dt.textContent = 'Licensing';
+      const dd = document.createElement('dd');
+      dd.textContent = f.licensing;
+      modalFacts.appendChild(dt);
+      modalFacts.appendChild(dd);
+    }
+
+    // Where to Watch — accepts a plain string, an array of strings, or an
+    // array of { label, url } objects (url is optional, makes it a link).
+    // A single { label, url } object also works.
+    if (f.whereToWatch) {
+      const raw = Array.isArray(f.whereToWatch) ? f.whereToWatch : [f.whereToWatch];
+      const dt = document.createElement('dt');
+      dt.textContent = 'Where to Watch';
+      const dd = document.createElement('dd');
+      raw.forEach((item, i) => {
+        if (i > 0) dd.appendChild(document.createTextNode(', '));
+        if (typeof item === 'string') {
+          dd.appendChild(document.createTextNode(item));
+        } else if (item && item.url) {
+          const a = document.createElement('a');
+          a.href = item.url;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = item.label || item.url;
+          dd.appendChild(a);
+        } else if (item && item.label) {
+          dd.appendChild(document.createTextNode(item.label));
+        }
+      });
+      modalFacts.appendChild(dt);
+      modalFacts.appendChild(dd);
+    }
 
     // Awards — accepts either a string or an array in films-data.js
     modalAwards.innerHTML = '';
