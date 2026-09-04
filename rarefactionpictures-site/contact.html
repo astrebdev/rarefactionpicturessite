@@ -10,27 +10,26 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cinematography — Rarefaction Pictures</title>
-<meta name="description" content="Stills and reel from Rarefaction Pictures' cinematography, shot by Avery Streb and Marlon Streb.">
-<link rel="canonical" href="https://rarefactionpictures.com/cinematography.html">
+<title>Contact — Rarefaction Pictures</title>
+<meta name="description" content="Get in touch with Rarefaction Pictures for collaborations, crew inquiries, or general contact.">
+<link rel="canonical" href="https://rarefactionpictures.com/contact.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Cinematography — Rarefaction Pictures">
+<meta property="og:title" content="Contact — Rarefaction Pictures">
 <meta property="og:description" content="See what's new from Rarefaction Pictures">
-<meta property="og:url" content="https://rarefactionpictures.com/cinematography.html">
+<meta property="og:url" content="https://rarefactionpictures.com/contact.html">
 <meta property="og:image" content="https://rarefactionpictures.com/images/RarefactionEmbed.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cinematography — Rarefaction Pictures">
+<meta name="twitter:title" content="Contact — Rarefaction Pictures">
 <meta name="twitter:description" content="See what's new from Rarefaction Pictures">
 <meta name="twitter:image" content="https://rarefactionpictures.com/images/RarefactionEmbed.png">
-<link rel="icon" type="image/png" href="images/logo-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Newsreader:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/logo-icon.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="newsprint-bg"></div>
-
 <header class="site-header">
   <div class="site-header-inner">
     <a href="index.html" class="logo-mark">
@@ -40,79 +39,42 @@
     <nav class="site-nav">
       <a href="index.html">Home</a>
       <a href="work.html">Our Work</a>
-      <a href="cinematography.html" aria-current="page">Cinematography</a>
-      <a href="contact.html">Contact</a>
+      <a href="cinematography.html">Cinematography</a>
+      <a href="contact.html" aria-current="page">Contact</a>
     </nav>
   </div>
 </header>
 
+<div class="wrap contact-page">
+  <p class="eyebrow">Get in touch</p>
+  <a href="mailto:rarefactionpicturesoutreach@gmail.com" class="contact-email">
+    rarefactionpicturesoutreach@gmail.com
+  </a>
+</div>
 
-<!-- ============ REEL — full-bleed, top of page ============
-  EDIT ME: currently playing a placeholder (Big Buck Bunny, CC BY 3.0,
-  Blender Foundation) so the player isn't empty. Replace the <source>
-  src below with your real reel once you have one.
--->
-<section class="reel">
-  <div class="reel-player">
-    <video class="reel-video" autoplay muted loop playsinline preload="auto" poster="https://picsum.photos/seed/reel-poster/1600/900">
-      <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-    </video>
-    <div class="reel-placeholder-label" id="reelPlaceholderLabel">
-      [ Reel goes here ]<br>Drop an mp4 in <code>videos/</code> and update the &lt;source&gt; tag in this file
+<!-- EDIT ME: replace YOUR_FORM_ID with a real Formspree (or similar) form ID
+     so submissions actually send. Static sites need a service like this. -->
+<div class="wrap contact-form-wrap">
+  <form class="contact-form" id="contactForm" action="https://formspree.io/f/mwlkbrno" method="POST">
+    <h2 class="contact-form-title">Send Us a Message</h2>
+    <p class="contact-form-sub">Please fill in the form below to get in touch with us.</p>
+    <div class="contact-form-row">
+      <input type="text" name="first_name" placeholder="First name" required>
+      <input type="text" name="last_name" placeholder="Last name" required>
     </div>
-    <button class="reel-mute-toggle" aria-label="Toggle sound">🔇</button>
-  </div>
-</section>
-
-<!-- ============ STILLS + MARLON — one unified block ============
-  EDIT ME: each .cine-slide is one still. Copy a slide to add more.
-  data-caption is the text that appears next to Marlon's photo below,
-  whenever that slide is active — write it as a short personal note
-  about that shot/project. The carousel spans the full width; the
-  photo and caption sit in a row beneath it, left-aligned to match.
--->
-<section class="cine-unit">
-  <div class="wrap cine-unit-grid">
-
-    <p class="section-label" style="grid-column:1/-1; text-align:center; margin-bottom:8px;">Stills</p>
-
-    <div class="cine-carousel">
-      <div class="cine-track">
-
-        <div class="cine-slide active" data-caption="One of my favorite stills from NOON. We were able to motivate light coming from the ladder exit above the subject, which bounced around in the darkness below to provide a minimal but necessary fill.">
-          <div class="cine-frame"><img src="images/still-01.jpg" alt="The Routine still"></div>
-        </div>
-
-        <div class="cine-slide" data-caption="Before we had more varied equipment, we'd always keep random objects that could theoretically look good on camera. With the tarp to Reinier's right, we made the right decision. I'm not sure where we even got it- it was just a piece of trash floating around.">
-          <div class="cine-frame"><img src="images/still-02.jpg" alt="NOON still"></div>
-        </div>
-
-        <div class="cine-slide" data-caption="The rocks scene in NOON is a testament to what can be done with a small crew. It was only Avery and I up there, we shot the whole segment in an hour, and its one of my favorite moments in the film.">
-          <div class="cine-frame"><img src="images/still-03.jpg" alt="Daedalus still"></div>
-        </div>
-
-        <div class="cine-slide" data-caption="The reverse shot to the one with the tarp. Only one side of the truck had a window, and we wanted to avoid a reflective, blank wall behind me. The wooden beams and dim, diffused light solved that.">
-          <div class="cine-frame"><img src="images/still-04.jpg" alt="Next project still"></div>
-        </div>
-
-      </div>
-
-      <button class="cine-arrow cine-arrow--prev" aria-label="Previous still">‹</button>
-      <button class="cine-arrow cine-arrow--next" aria-label="Next still">›</button>
-      <div class="cine-dots"></div>
+    <div class="contact-form-row">
+      <input type="email" name="email" placeholder="Email address" required>
+      <input type="tel" name="phone" placeholder="Phone Number">
     </div>
-
-    <div class="editorial-split-photo">
-      <img src="images/marlon-photo.jpg" alt="Marlon Streb">
-    </div>
-    <div class="editorial-split-text">
-      <h2>Marlon Streb</h2>
-      <p>One of my favorite stills from NOON. We were able to motivate light coming from the ladder exit above the subject, which bounced around in the darkness below to provide a minimal but necessary fill.</p>
-    </div>
-
-  </div>
-</section>
-
+    <textarea name="message" placeholder="Message" rows="5" required></textarea>
+    <!-- <label class="contact-form-check">
+      <input type="checkbox" required>
+      I've read and agree with <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+    </label> -->
+    <button type="submit" class="contact-form-submit">Submit</button>
+    <p class="contact-form-status" id="contactFormStatus"></p>
+  </form>
+</div>
 <div class="torn-divider"></div>
 <footer class="site-footer">
   <div class="footer-top">
@@ -137,7 +99,6 @@
     </div>
   </div>
 </footer>
-
 <script src="main.js"></script>
 </body>
 </html>
