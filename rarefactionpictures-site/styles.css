@@ -997,7 +997,7 @@ body.has-hero{ padding-top:0; }
 }
 
 .about-intro{
-  padding-top:12px;
+  padding-top:5px;
   padding-bottom:0px;
   max-width:680px;
   margin:0 auto;
@@ -1278,4 +1278,15 @@ body.has-hero{ padding-top:0; }
   margin-top:14px;
   font-size:14px;
   color:var(--orange);
+}
+
+/* Empty headline shouldn't create a gap above the button */
+.hero-headline:empty{ display:none; }
+
+@media (max-width:800px){
+  .site-header{ background:#0c0b0c !important; box-shadow:0 6px 28px rgba(0,0,0,0.55) !important; }
+  body.has-hero{ padding-top:var(--header-height); }
+  .site-header-inner{ justify-content:center; }
+  .logo-mark{ margin:0 auto; }
+  .nav-toggle{ position:absolute; right:32px; top:50%; transform:translateY(-50%); }
 }
