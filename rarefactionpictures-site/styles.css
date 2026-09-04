@@ -168,7 +168,7 @@ body.has-hero{ padding-top:0; }
 .tri-mark{ width:26px; height:auto; flex-shrink:0; }
 
 .logo-header-mark{
-  height:30px;
+  height:60px;
   width:auto;
   flex-shrink:0;
 }
@@ -178,10 +178,10 @@ body.has-hero{ padding-top:0; }
 .site-nav a{
   font-family:var(--font-display);
   font-weight:600;
-  font-size:13px;
+  font-size:18px;
   letter-spacing:0.08em;
   text-transform:uppercase;
-  color:var(--muted);
+  color:var(--white);
   transition:color .2s ease;
   position:relative;
   padding-bottom:4px;
