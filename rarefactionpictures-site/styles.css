@@ -57,7 +57,7 @@ html[data-theme="red"]{
 
 @font-face{
   font-family:'Apotek ExtraWide';
-  src:url('fonts/Apotek_ExtraWide_Medium.otf') format('opentype');
+  src:url('fonts/Apotek_ExtraWide_Light.otf') format('opentype');
   font-weight:500;
 }
 
