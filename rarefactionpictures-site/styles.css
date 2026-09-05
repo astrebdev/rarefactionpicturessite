@@ -18,8 +18,8 @@
 
   --font-display: 'Gotham', 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
   --header-height: 108px;
-  --font-body:    'Fraunces', Georgia, serif;
-  --font-mono:    'Fragment Mono', 'Courier New', monospace;
+  --font-body:    'Javanese Text', Georgia, serif;
+  --font-mono:    'Apotek ExtraWide', 'Courier New', monospace;
 }
 
 /* =========================================================
@@ -53,6 +53,17 @@ html[data-theme="red"]{
   font-family:'Gotham';
   src:url('fonts/Gotham-Bold.woff2') format('woff2');
   font-weight:700;
+}
+
+@font-face{
+  font-family:'Apotek ExtraWide';
+  src:url('fonts/Apotek_ExtraWide_Medium.otf') format('opentype');
+  font-weight:500;
+}
+
+@font-face{
+  font-family:'Javanese Text';
+  src:url('fonts/javatext.woff') format('woff');
 }
 
 
