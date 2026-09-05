@@ -18,8 +18,8 @@
 
   --font-display: 'Gotham', 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
   --header-height: 108px;
-  --font-body:    'Fraunces', Georgia, serif;
-  --font-mono:    'Fragment Mono', 'Courier New', monospace;
+  --font-body:    'Javanese Text', Georgia, serif;
+  --font-mono:    'Apotek ExtraWide', 'Courier New', monospace;
 }
 
 /* =========================================================
@@ -53,6 +53,17 @@ html[data-theme="red"]{
   font-family:'Gotham';
   src:url('fonts/Gotham-Bold.woff2') format('woff2');
   font-weight:700;
+}
+
+@font-face{
+  font-family:'Apotek ExtraWide';
+  src:url('fonts/Apotek_ExtraWide_Light.otf') format('opentype');
+  font-weight:500;
+}
+
+@font-face{
+  font-family:'Javanese Text';
+  src:url('fonts/javatext.woff') format('woff');
 }
 
 
@@ -110,7 +121,7 @@ img{ max-width:100%; display:block; }
 
 .eyebrow{
   font-family:var(--font-mono);
-  font-size:12px;
+  font-size:13px;
   letter-spacing:0.18em;
   text-transform:uppercase;
   color:var(--muted);
@@ -425,7 +436,7 @@ body.has-hero{ padding-top:0; }
 
 .work-category-link{
   font-family:var(--font-mono);
-  font-size:12px;
+  font-size:13px;
   color:var(--muted);
   letter-spacing:0.06em;
 }
@@ -459,7 +470,7 @@ body.has-hero{ padding-top:0; }
 }
 .work-card-frame span{
   font-family:var(--font-mono);
-  font-size:11px;
+  font-size:12px;
   color:var(--muted);
   letter-spacing:0.08em;
   text-transform:uppercase;
@@ -475,7 +486,7 @@ body.has-hero{ padding-top:0; }
 }
 .work-card-meta{
   font-family:var(--font-mono);
-  font-size:11px;
+  font-size:12px;
   color:var(--muted);
   margin-top:6px;
 }
@@ -488,7 +499,7 @@ body.has-hero{ padding-top:0; }
 }
 .work-empty p{
   font-family:var(--font-mono);
-  font-size:12px;
+  font-size:13px;
   letter-spacing:0.06em;
   text-transform:uppercase;
   color:var(--muted);
@@ -597,7 +608,7 @@ body.has-hero{ padding-top:0; }
 }
 .cine-frame span{
   font-family:var(--font-mono);
-  font-size:11px; color:var(--muted);
+  font-size:12px; color:var(--muted);
   text-transform:uppercase; letter-spacing:0.08em;
 }
 
@@ -718,7 +729,7 @@ body.has-hero{ padding-top:0; }
   text-align:center;
   padding:0 24px;
   font-family:var(--font-mono);
-  font-size:12px;
+  font-size:13px;
   letter-spacing:0.06em;
   text-transform:uppercase;
   color:var(--muted);
@@ -789,7 +800,7 @@ body.has-hero{ padding-top:0; }
 
 .film-modal-eyebrow{
   font-family:var(--font-mono);
-  font-size:12px;
+  font-size:13px;
   letter-spacing:0.1em;
   text-transform:uppercase;
   color:var(--muted);
@@ -818,7 +829,7 @@ body.has-hero{ padding-top:0; }
   position:absolute; inset:0;
   display:flex; align-items:center; justify-content:center;
   font-family:var(--font-mono);
-  font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+  font-size:13px; letter-spacing:0.06em; text-transform:uppercase;
   color:var(--muted);
 }
 
@@ -830,7 +841,7 @@ body.has-hero{ padding-top:0; }
 }
 .film-modal-facts dt{
   font-family:var(--font-mono);
-  font-size:11px;
+  font-size:12px;
   letter-spacing:0.06em;
   text-transform:uppercase;
   color:var(--muted);
@@ -1025,7 +1036,7 @@ body.has-hero{ padding-top:0; }
 }
 .team-photo span{
   font-family:var(--font-mono);
-  font-size:11px; color:var(--muted);
+  font-size:12px; color:var(--muted);
   text-align:center; padding:0 16px;
   text-transform:uppercase; letter-spacing:0.06em;
 }
@@ -1037,7 +1048,7 @@ body.has-hero{ padding-top:0; }
 }
 .team-role{
   font-family:var(--font-mono);
-  font-size:12px;
+  font-size:13px;
   color:var(--member-color, var(--muted));
   margin-top:4px;
   letter-spacing:0.05em;
@@ -1079,7 +1090,7 @@ body.has-hero{ padding-top:0; }
 
 .contact-links{
   display:flex; gap:28px; justify-content:center;
-  font-family:var(--font-mono); font-size:13px;
+  font-family:var(--font-mono); font-size:15px;
   letter-spacing:0.06em; text-transform:uppercase;
 }
 .contact-links a{ color:var(--muted); }
@@ -1116,7 +1127,7 @@ body.has-hero{ padding-top:0; }
 .footer-socials a{
   color:var(--muted);
   font-family:var(--font-mono);
-  font-size:11px;
+  font-size:12px;
   text-transform:uppercase;
   letter-spacing:0.06em;
 }
@@ -1135,7 +1146,7 @@ body.has-hero{ padding-top:0; }
 }
 .footer-copy{
   font-family:var(--font-mono);
-  font-size:11px;
+  font-size:12px;
   color:var(--muted);
   letter-spacing:0.06em;
 }
@@ -1143,7 +1154,7 @@ body.has-hero{ padding-top:0; }
   display:flex;
   gap:24px;
   font-family:var(--font-mono);
-  font-size:11px;
+  font-size:12px;
   letter-spacing:0.06em;
   text-transform:uppercase;
 }
