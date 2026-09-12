@@ -701,8 +701,7 @@ body.has-hero{ padding-top:0; }
 .reel-player{
   position:relative;
   width:100%;
-  height:min(80vh, 720px);
-  min-height:360px;
+  height:100vh;
   background:repeating-linear-gradient(135deg,#221f21 0 2px,#19171a 2px 4px);
   overflow:hidden;
 }
@@ -711,6 +710,14 @@ body.has-hero{ padding-top:0; }
   width:100%; height:100%;
   object-fit:cover;
   display:block;
+}
+
+.reel-fade{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height:35vh;
+  background:linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 100%);
+  pointer-events:none;
 }
 
 @media (max-width:800px){
