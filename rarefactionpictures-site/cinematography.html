@@ -47,16 +47,18 @@
 </header>
 
 
-<!-- ============ REEL — full-bleed, top of page ============
+<!-- ============ REEL — full-page hero ============
   EDIT ME: currently playing a placeholder (Big Buck Bunny, CC BY 3.0,
   Blender Foundation) so the player isn't empty. Replace the <source>
-  src below with your real reel once you have one.
+  src below with your real reel once you have one. No poster set —
+  it shows the video's own first frame.
 -->
 <section class="reel">
   <div class="reel-player">
-    <video class="reel-video" autoplay muted loop playsinline preload="auto" poster="https://picsum.photos/seed/reel-poster/1600/900">
+    <video class="reel-video" autoplay muted loop playsinline preload="auto">
       <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
     </video>
+    <div class="reel-fade"></div>
     <div class="reel-placeholder-label" id="reelPlaceholderLabel">
       [ Reel goes here ]<br>Drop an mp4 in <code>videos/</code> and update the &lt;source&gt; tag in this file
     </div>
