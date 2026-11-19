@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  var modes = ['blue','orange','red'];
+  var m = modes[Math.floor(Math.random()*modes.length)];
+  document.documentElement.setAttribute('data-theme', m);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VFX — Rarefaction Pictures</title>
+<meta name="description" content="VFX work from Rarefaction Pictures.">
+<link rel="canonical" href="https://rarefactionpictures.com/vfx.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VFX — Rarefaction Pictures">
+<meta property="og:description" content="See what's new from Rarefaction Pictures">
+<meta property="og:url" content="https://rarefactionpictures.com/vfx.html">
+<meta property="og:image" content="https://rarefactionpictures.com/images/RarefactionEmbed.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VFX — Rarefaction Pictures">
+<meta name="twitter:description" content="See what's new from Rarefaction Pictures">
+<meta name="twitter:image" content="https://rarefactionpictures.com/images/RarefactionEmbed.png">
+<link rel="icon" type="image/png" href="images/logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="newsprint-bg"></div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="logo-mark">
+      <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="cinematography.html">Cinematography</a>
+      <a href="vfx.html" aria-current="page">VFX</a>
+      <a href="work.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+<main style="min-height:60vh"></main>
+
+<div class="torn-divider"></div>
+<footer class="site-footer">
+  <div class="footer-top">
+    <div>
+      <img src="images/logo-icon.png" class="footer-brand-mark" alt="">
+      <p class="footer-tagline">A production company making short films and features.</p>
+    </div>
+    <div class="footer-socials">
+      <a href="mailto:rarefactionpicturesoutreach@gmail.com">Email</a>
+      <a href="https://www.instagram.com/rarefactionpictures/">Instagram</a>
+      <a href="https://www.reddit.com/user/rarefactionpictures/">Reddit</a>
+      <a href="https://youtube.com/@rarefactionfilm">YouTube</a>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <span class="footer-copy"><span style="font-family:var(--font-display)">&copy;</span> <span id="year"></span> Rarefaction Pictures</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="cinematography.html">Cinematography</a>
+      <a href="vfx.html">VFX</a>
+      <a href="work.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
