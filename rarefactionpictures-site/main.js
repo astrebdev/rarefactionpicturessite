@@ -253,9 +253,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (track && slides.length) {
     let index = 0;
-    const captionEl = document.querySelector('.editorial-split-text p');
+    const n = slides.length;
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.innerHTML = '<button class="lightbox-close" aria-label="Close">×</button><img alt="">';
+    document.body.appendChild(lb);
+    const lbImg = lb.querySelector('img');
+    window.openLightbox = (src, alt) => { lbImg.src = src; lbImg.alt = alt || ''; lb.classList.add('open'); };
+    lb.addEventListener('click', () => lb.classList.remove('open'));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
 
-    slides.forEach((_, i) => {
+    slides.forEach((s, i) => {
+      const cap = document.createElement('div');
+      cap.className = 'cine-caption';
+      cap.textContent = s.dataset.title || '';
+      const fs = document.createElement('button');
+      fs.className = 'fs-btn'; fs.setAttribute('aria-label', 'Fullscreen'); fs.innerHTML = '⛶';
+      fs.addEventListener('click', e => { e.stopPropagation(); const im = s.querySelector('img'); openLightbox(im.src, im.alt); });
+      s.append(cap, fs);
+      // touch: tap the active still to toggle the overlay
+      s.addEventListener('click', () => { if (i === index) s.classList.toggle('show'); });
       const dot = document.createElement('button');
       dot.className = 'cine-dot';
       dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
@@ -264,30 +281,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const dots = dotsWrap.querySelectorAll('.cine-dot');
 
-    function applyCaption() {
-      if (!captionEl) return;
-      const newText = slides[index].dataset.caption || '';
-      captionEl.classList.add('fading');
-      setTimeout(() => {
-        captionEl.textContent = newText;
-        captionEl.classList.remove('fading');
-      }, 300);
-    }
-
     function render() {
-      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      slides.forEach((s, i) => {
+        let off = ((i - index) % n + n) % n;
+        if (off > n / 2) off -= n;
+        s.classList.remove('pos--1', 'pos-0', 'pos-1', 'show');
+        if (off >= -1 && off <= 1) s.classList.add('pos-' + off);
+        s.style.transform = 'translateX(' + off * 100 + '%)';
+      });
       dots.forEach((d, i) => d.classList.toggle('active', i === index));
     }
-    function goTo(i) {
-      index = (i + slides.length) % slides.length;
-      render();
-      applyCaption();
-    }
+    function goTo(i) { index = (i + n) % n; render(); }
 
     prevBtn.addEventListener('click', () => goTo(index - 1));
     nextBtn.addEventListener('click', () => goTo(index + 1));
+    document.querySelector('.cine-peek--left').addEventListener('click', () => goTo(index - 1));
+    document.querySelector('.cine-peek--right').addEventListener('click', () => goTo(index + 1));
     render();
-    if (captionEl) captionEl.textContent = slides[index].dataset.caption || '';
+
+    const grid = document.getElementById('stillGrid');
+    (window.GRID_STILLS || []).forEach(f => {
+      const im = document.createElement('img');
+      im.src = 'images/grid/' + f; im.alt = 'Still'; im.loading = 'lazy';
+      im.addEventListener('click', () => openLightbox(im.src, im.alt));
+      grid.appendChild(im);
+    });
   }
 
   // ================================================================

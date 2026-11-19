@@ -39,8 +39,9 @@
     <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
     <nav class="site-nav">
       <a href="index.html">Home</a>
-      <a href="work.html">Our Work</a>
       <a href="cinematography.html" aria-current="page">Cinematography</a>
+      <a href="vfx.html">VFX</a>
+      <a href="work.html">Projects</a>
       <a href="contact.html">Contact</a>
     </nav>
   </div>
@@ -66,54 +67,38 @@
   </div>
 </section>
 
-<!-- ============ STILLS + MARLON — one unified block ============
-  EDIT ME: each .cine-slide is one still. Copy a slide to add more.
-  data-caption is the text that appears next to Marlon's photo below,
-  whenever that slide is active — write it as a short personal note
-  about that shot/project. The carousel spans the full width; the
-  photo and caption sit in a row beneath it, left-aligned to match.
+<!-- ============ STILLS ============
+  EDIT ME: each .cine-slide is one still; data-title is the project name shown on hover.
+  Grid stills: drop images into images/grid/ and add their filenames to the list below.
 -->
 <section class="cine-unit">
-  <div class="wrap cine-unit-grid">
-
-    <p class="section-label" style="grid-column:1/-1; text-align:center; margin-bottom:8px;">Stills</p>
+  <div class="wrap">
+    <p class="section-label" style="text-align:center; margin-bottom:24px;">Stills</p>
 
     <div class="cine-carousel">
-      <div class="cine-track">
-
-        <div class="cine-slide active" data-caption="One of my favorite stills from NOON. We were able to motivate light coming from the ladder exit above the subject, which bounced around in the darkness below to provide a minimal but necessary fill.">
-          <div class="cine-frame"><img src="images/still-01.jpg" alt="The Routine still"></div>
+      <div class="cine-viewport">
+        <div class="cine-peek cine-peek--left"></div>
+        <div class="cine-peek cine-peek--right"></div>
+        <div class="cine-track">
+          <div class="cine-slide" data-title="NOON"><div class="cine-frame"><img src="images/still-01.jpg" alt="NOON still"></div></div>
+          <div class="cine-slide" data-title="NOON"><div class="cine-frame"><img src="images/still-02.jpg" alt="NOON still"></div></div>
+          <div class="cine-slide" data-title="NOON"><div class="cine-frame"><img src="images/still-03.jpg" alt="NOON still"></div></div>
+          <div class="cine-slide" data-title="NOON"><div class="cine-frame"><img src="images/still-04.jpg" alt="NOON still"></div></div>
         </div>
-
-        <div class="cine-slide" data-caption="Before we had more varied equipment, we'd always keep random objects that could theoretically look good on camera. With the tarp to Reinier's right, we made the right decision. I'm not sure where we even got it- it was just a piece of trash floating around.">
-          <div class="cine-frame"><img src="images/still-02.jpg" alt="NOON still"></div>
-        </div>
-
-        <div class="cine-slide" data-caption="The rocks scene in NOON is a testament to what can be done with a small crew. It was only Avery and I up there, we shot the whole segment in an hour, and its one of my favorite moments in the film.">
-          <div class="cine-frame"><img src="images/still-03.jpg" alt="Daedalus still"></div>
-        </div>
-
-        <div class="cine-slide" data-caption="The reverse shot to the one with the tarp. Only one side of the truck had a window, and we wanted to avoid a reflective, blank wall behind me. The wooden beams and dim, diffused light solved that.">
-          <div class="cine-frame"><img src="images/still-04.jpg" alt="Next project still"></div>
-        </div>
-
       </div>
-
       <button class="cine-arrow cine-arrow--prev" aria-label="Previous still">‹</button>
       <button class="cine-arrow cine-arrow--next" aria-label="Next still">›</button>
       <div class="cine-dots"></div>
     </div>
 
-    <div class="editorial-split-photo">
-      <img src="images/marlon-photo.jpg" alt="Marlon Streb">
-    </div>
-    <div class="editorial-split-text">
-      <h2>Marlon Streb</h2>
-      <p>One of my favorite stills from NOON. We were able to motivate light coming from the ladder exit above the subject, which bounced around in the darkness below to provide a minimal but necessary fill.</p>
-    </div>
-
+    <div class="still-grid" id="stillGrid"></div>
   </div>
 </section>
+
+<script>
+  // Add filenames from images/grid/ here
+  window.GRID_STILLS = ['still-01.jpg','still-02.jpg','still-03.jpg','still-04.jpg'];
+</script>
 
 <div class="torn-divider"></div>
 <footer class="site-footer">
@@ -133,8 +118,9 @@
     <span class="footer-copy"><span style="font-family:var(--font-display)">&copy;</span> <span id="year"></span> Rarefaction Pictures</span>
     <div class="footer-links">
       <a href="index.html">Home</a>
-      <a href="work.html">Our Work</a>
       <a href="cinematography.html">Cinematography</a>
+      <a href="vfx.html">VFX</a>
+      <a href="work.html">Projects</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
