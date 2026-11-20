@@ -1253,3 +1253,6 @@ body.has-hero{ padding-top:0; }
 }
 .film-modal-facts dd a{ color:var(--orange); text-decoration:underline; }
 .film-modal-facts dd a:hover{ color:var(--ink); }
+
+/* hide any project category that has no cards */
+.work-category:not(:has(.work-card)){ display:none; }
