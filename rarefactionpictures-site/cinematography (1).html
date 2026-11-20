@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+(function(){
+  var modes = ['blue','orange','red'];
+  var m = modes[Math.floor(Math.random()*modes.length)];
+  document.documentElement.setAttribute('data-theme', m);
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinematography — Rarefaction Pictures</title>
+<meta name="description" content="Stills and reel from Rarefaction Pictures' cinematography, shot by Avery Streb and Marlon Streb.">
+<link rel="canonical" href="https://rarefactionpictures.com/cinematography.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cinematography — Rarefaction Pictures">
+<meta property="og:description" content="See what's new from Rarefaction Pictures">
+<meta property="og:url" content="https://rarefactionpictures.com/cinematography.html">
+<meta property="og:image" content="https://rarefactionpictures.com/images/RarefactionEmbed.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cinematography — Rarefaction Pictures">
+<meta name="twitter:description" content="See what's new from Rarefaction Pictures">
+<meta name="twitter:image" content="https://rarefactionpictures.com/images/RarefactionEmbed.png">
+<link rel="icon" type="image/png" href="images/logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="newsprint-bg"></div>
+
+<header class="site-header">
+  <div class="site-header-inner">
+    <a href="index.html" class="logo-mark">
+      <img class="logo-header-mark" src="images/logo-full.png" alt="Rarefaction Pictures">
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav class="site-nav">
+      <a href="index.html">Home</a>
+      <a href="cinematography.html" aria-current="page">Cinematography</a>
+      <a href="vfx.html">VFX</a>
+      <a href="work.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+
+<!-- ============ REEL — full-page hero ============
+  EDIT ME: currently playing a placeholder (Big Buck Bunny, CC BY 3.0,
+  Blender Foundation) so the player isn't empty. Replace the <source>
+  src below with your real reel once you have one. No poster set —
+  it shows the video's own first frame.
+-->
+<section class="reel">
+  <div class="reel-player">
+    <video class="reel-video" autoplay muted loop playsinline preload="auto">
+      <source src="videos/cinematography_reel_web (1).mp4" type="video/mp4">
+    </video>
+    <div class="reel-fade"></div>
+    <div class="reel-placeholder-label" id="reelPlaceholderLabel">
+      [ Reel goes here ]<br>Drop an mp4 in <code>videos/</code> and update the &lt;source&gt; tag in this file
+    </div>
+    <button class="reel-mute-toggle" aria-label="Toggle sound">🔇</button>
+  </div>
+</section>
+
+<!-- ============ STILLS ============
+  EDIT ME: each .cine-slide is one still; data-title is the project name shown on hover.
+  Grid stills: drop images into images/grid/ and add their filenames to the list below.
+-->
+<section class="cine-unit">
+  <div class="wrap">
+    <p class="section-label" style="text-align:center; margin-bottom:24px;">Stills</p>
+
+    <div class="cine-carousel">
+      <div class="cine-viewport">
+        <div class="cine-peek cine-peek--left"></div>
+        <div class="cine-peek cine-peek--right"></div>
+        <div class="cine-track">
+          <div class="cine-slide" data-title="NOON"><div class="cine-frame"><img src="images/still-01.jpg" alt="NOON still"></div></div>
+          <div class="cine-slide" data-title="NOON"><div class="cine-frame"><img src="images/still-02.jpg" alt="NOON still"></div></div>
+          <div class="cine-slide" data-title="NOON"><div class="cine-frame"><img src="images/still-03.jpg" alt="NOON still"></div></div>
+          <div class="cine-slide" data-title="NOON"><div class="cine-frame"><img src="images/still-04.jpg" alt="NOON still"></div></div>
+        </div>
+      </div>
+      <button class="cine-arrow cine-arrow--prev" aria-label="Previous still">‹</button>
+      <button class="cine-arrow cine-arrow--next" aria-label="Next still">›</button>
+      <div class="cine-dots"></div>
+    </div>
+
+    <div class="still-grid" id="stillGrid"></div>
+  </div>
+</section>
+
+<script>
+  // Add filenames from images/grid/ here
+  window.GRID_STILLS = ['still-01.jpg','still-02.jpg','still-03.jpg','still-04.jpg'];
+</script>
+
+<div class="torn-divider"></div>
+<footer class="site-footer">
+  <div class="footer-top">
+    <div>
+      <img src="images/logo-icon.png" class="footer-brand-mark" alt="">
+      <p class="footer-tagline">A production company making short films and features.</p>
+    </div>
+    <div class="footer-socials">
+      <a href="mailto:info@rarefactionpictures.com">Email</a>
+      <a href="https://www.instagram.com/rarefactionpictures/">Instagram</a>
+      <a href="https://www.reddit.com/user/rarefactionpictures/">Reddit</a>
+      <a href="https://youtube.com/@rarefactionfilm">YouTube</a>
+    </div>
+  </div>
+  <div class="footer-inner">
+    <span class="footer-copy"><span style="font-family:var(--font-display)">&copy;</span> <span id="year"></span> Rarefaction Pictures</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="cinematography.html">Cinematography</a>
+      <a href="vfx.html">VFX</a>
+      <a href="work.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
